@@ -36,7 +36,15 @@ namespace WPF_Front_End
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            try 
+            {
+                DragMove();
+            }
+            catch
+            {
+
+            }
+            
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
