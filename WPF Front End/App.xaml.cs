@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace WPF_Entity_Framework_CSharp_Final_Project
+namespace WPF_Front_End
 {
     /// <summary>
     /// Interaction logic for App.xaml

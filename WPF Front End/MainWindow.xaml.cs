@@ -12,14 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BusinessLayer;
 
-namespace WPF_Entity_Framework_CSharp_Final_Project
+namespace WPF_Front_End
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Program _mainProgram = new Program();
         public MainWindow()
         {
             InitializeComponent();
