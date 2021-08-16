@@ -13,8 +13,8 @@ namespace Data
         public static SMDbContext Instance { get; } = new SMDbContext();
 
 
-        public DbSet<User> User { get; set; }
-        public DbSet<Movie> Movie { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Movie> Movies { get; set; }
         public DbSet<MovieDetails> MovieDetails { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)

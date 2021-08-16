@@ -7,13 +7,16 @@
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MainWindow"
-    Width="800"
-    Height="450"
+    Width="1280"
+    Height="720"
+    Background="{DynamicResource MaterialDesignPaper}"
+    FontFamily="{DynamicResource MaterialDesignFont}"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
-    <Grid>
+
+    <Grid MouseDown="Border_MouseDown">
         <Grid.Background>
             <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
                 <GradientStop Offset="1" Color="#FF2978A0" />
@@ -21,35 +24,108 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Border
-            Height="450"
+            Height="720"
             VerticalAlignment="Center"
             Background="White"
-            CornerRadius="0 0 0 0" />
+            CornerRadius="0 0 0 0"
+            MouseDown="Border_MouseDown" />
         <StackPanel Orientation="Horizontal">
-            <StackPanel Width="275">
-                <StackPanel Margin="20,100">
-                    <Label Content="Username" Foreground="Gray" />
+            <StackPanel Width="400">
+                <StackPanel Margin="20,200">
                     <TextBlock
-                        Margin="20,0,20,20"
-                        FontFamily="Great Vibes"
-                        FontSize="38"
-                        Foreground="#040303"
-                        Text="User Login"
+                        Margin="20,20,20,20"
+                        FontFamily="Freestyle Script Bold"
+                        FontSize="45"
+                        Foreground="#2c363f"
+                        Text="Sign In"
                         TextAlignment="Center" />
-                    <StackPanel Margin="10" Orientation="Horizontal" />
+                    <StackPanel
+                        Margin="10,10,35,10"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                        <materialDesign:PackIcon
+                            Width="25"
+                            Height="25"
+                            Foreground="#d05871"
+                            Kind="User" />
+                        <TextBox
+                            x:Name="txtUsername"
+                            Width="180"
+                            Margin="10,0"
+                            materialDesign:HintAssist.Hint="Username"
+                            BorderBrush="Black"
+                            CaretBrush="Red"
+                            Foreground="#563b66"
+                            SelectionBrush="#d05871" />
+
+
+                        <!--<Label Content="Username" Foreground="Gray" />-->
+                    </StackPanel>
+                    <StackPanel
+                        Margin="10,10,35,10"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                        <materialDesign:PackIcon
+                            Width="25"
+                            Height="25"
+                            Foreground="#f7d2de"
+                            Kind="Lock" />
+                        <PasswordBox
+                            x:Name="txtPassword"
+                            Width="180"
+                            Margin="10,0"
+                            materialDesign:HintAssist.Hint="Password"
+                            BorderBrush="Black"
+                            CaretBrush="red"
+                            Foreground="#563b66"
+                            SelectionBrush="#d05871" />
+                    </StackPanel>
+                    <StackPanel Margin="10" HorizontalAlignment="Center">
+                        <Button
+                            x:Name="btwLogin"
+                            Width="80"
+                            Height="40"
+                            Margin="0,0,0,0"
+                            materialDesign:ButtonAssist.CornerRadius="10"
+                            Background="#563b66"
+                            BorderBrush="#563b66"
+                            BorderThickness="1"
+                            Click="btwLogin_Click"
+                            Content="Log in"
+                            Foreground="White"
+                            Style="{StaticResource MaterialDesignRaisedButton}"
+                            ToolTip="Login" />
+
+
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
-            <StackPanel Width="525">
+            <StackPanel Width="780">
                 <Image
-                    Width="525"
-                    Height="450"
-                    Margin="0,0,0,0"
-                    VerticalAlignment="Center"
+                    Width="880"
+                    Height="720"
+                    HorizontalAlignment="Left"
                     Source="C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\BusinessLayer\Images\photo-1536440136628-849c177e76a1.jpg"
                     Stretch="Fill" />
             </StackPanel>
+            <StackPanel Width="100">
+                <Button
+                    x:Name="btnClose"
+                    Margin="10"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Background="{x:Null}"
+                    Click="btnClose_Click"
+                    Style="{StaticResource MaterialDesignFloatingActionButton}"
+                    ToolTip="Close">
+                    <materialDesign:PackIcon
+                        Width="20"
+                        Height="20"
+                        Foreground="Black"
+                        Kind="Close" />
 
-
+                </Button>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>

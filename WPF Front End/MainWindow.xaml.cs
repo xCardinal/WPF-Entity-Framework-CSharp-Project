@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BusinessLayer;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace WPF_Front_End
 {
@@ -21,10 +23,25 @@ namespace WPF_Front_End
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Program _mainProgram = new Program();
+        //private Program _mainProgram = new Program();
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btwLogin_Click(object sender, RoutedEventArgs e)
+        {
+            //Do nothing
+        }
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

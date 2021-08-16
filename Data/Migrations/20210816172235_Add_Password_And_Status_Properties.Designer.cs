@@ -3,14 +3,16 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Data.Migrations
 {
     [DbContext(typeof(SMDbContext))]
-    partial class SMDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210816172235_Add_Password_And_Status_Properties")]
+    partial class Add_Password_And_Status_Properties
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,7 +34,7 @@ namespace Data.Migrations
 
                     b.HasIndex("UserID");
 
-                    b.ToTable("Movies");
+                    b.ToTable("Movie");
                 });
 
             modelBuilder.Entity("Database.MovieDetails", b =>
@@ -68,15 +70,15 @@ namespace Data.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserID");
 
-                    b.ToTable("Users");
+                    b.ToTable("User");
                 });
 
             modelBuilder.Entity("Database.Movie", b =>

@@ -17,4 +17,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj" />
+    <ProjectReference Include="..\Data\Data.csproj" />
+  </ItemGroup>
+
 </Project>
