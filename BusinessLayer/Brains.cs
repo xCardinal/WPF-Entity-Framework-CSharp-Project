@@ -115,7 +115,7 @@ namespace BusinessLayer
                 var user = db.Users.FirstOrDefault(c => c.UserName == userName);
                 if (user == null)
                 {
-                    Debug.WriteLine($"User {user} not found");
+                    Debug.WriteLine($"User {(User?) null} not found");
                     return false;
                 }
                 user.ContactName = contactName;
