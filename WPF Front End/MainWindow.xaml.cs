@@ -33,7 +33,10 @@ namespace WPF_Front_End
         {
             if(_mainBrain.Login(txtUsername.Text, txtPassword.Password))
             {
-                MessageBox.Show("Login Successfully","Congrats", MessageBoxButton.OK, MessageBoxImage.Information);
+                //MessageBox.Show("Login Successfully","Congrats", MessageBoxButton.OK, MessageBoxImage.Information);
+                this.Hide();
+                Dashboard dashboard = new Dashboard();
+                dashboard.ShowDialog();
             }
             else
             {

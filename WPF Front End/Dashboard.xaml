@@ -1,0 +1,44 @@
+﻿<Window
+    x:Class="WPF_Front_End.Dashboard"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF_Front_End"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Dashboard"
+    Width="1280"
+    Height="720"
+    Background="{DynamicResource MaterialDesignPaper}"
+    FontFamily="{DynamicResource MaterialDesignFont}"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <Grid MouseDown="Border_MouseDown">
+        <Border
+            Height="720"
+            VerticalAlignment="Center"
+            Background="White"
+            CornerRadius="0 0 0 0"
+            MouseDown="Border_MouseDown" />
+        <Button
+            x:Name="btnClose"
+            Margin="10"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Background="#66CF62C7"
+            BorderBrush="#66A03E99"
+            Click="btnClose_Click"
+            Foreground="#FFF7D2DE"
+            Style="{StaticResource MaterialDesignFloatingActionButton}"
+            ToolTip="Close">
+            <materialDesign:PackIcon
+                Width="20"
+                Height="20"
+                Foreground="White"
+                Kind="Close" />
+        </Button>
+
+    </Grid>
+</Window>

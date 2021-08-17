@@ -17,12 +17,14 @@
     mc:Ignorable="d">
 
     <Grid MouseDown="Border_MouseDown">
+
         <Grid.Background>
             <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
                 <GradientStop Offset="1" Color="#FF2978A0" />
                 <GradientStop Offset="0" Color="#FFbcab79" />
             </LinearGradientBrush>
         </Grid.Background>
+
         <Border
             Height="720"
             VerticalAlignment="Center"
@@ -175,7 +177,6 @@
                     Source="C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\BusinessLayer\Images\photo-1536440136628-849c177e76a1.jpg"
                     Stretch="Fill" />
             </StackPanel>
-
         </StackPanel>
         <Button
             x:Name="btnClose"
