@@ -29,74 +29,141 @@
             Background="White"
             CornerRadius="0 0 0 0"
             MouseDown="Border_MouseDown" />
+
         <StackPanel Orientation="Horizontal">
             <StackPanel Width="400">
-                <StackPanel Margin="20,200">
-                    <TextBlock
-                        Margin="20,20,20,20"
-                        FontFamily="Freestyle Script Bold"
-                        FontSize="45"
-                        Foreground="#2c363f"
-                        Text="Sign In"
-                        TextAlignment="Center" />
-                    <StackPanel
-                        Margin="10,10,35,10"
-                        HorizontalAlignment="Center"
-                        Orientation="Horizontal">
-                        <materialDesign:PackIcon
-                            Width="25"
-                            Height="25"
-                            Foreground="#d05871"
-                            Kind="User" />
-                        <TextBox
-                            x:Name="txtUsername"
-                            Width="180"
-                            Margin="10,0"
-                            materialDesign:HintAssist.Hint="Username"
-                            BorderBrush="Black"
-                            CaretBrush="Red"
-                            Foreground="#563b66"
-                            SelectionBrush="#d05871" />
+                <StackPanel Margin="20,55">
+                    <StackPanel>
+                        <TextBlock
+                            Margin="20,20,20,20"
+                            FontFamily="Freestyle Script Bold"
+                            FontSize="45"
+                            Foreground="#2c363f"
+                            Text="Sign In"
+                            TextAlignment="Center" />
+                        <StackPanel
+                            Margin="10,10,35,10"
+                            HorizontalAlignment="Center"
+                            Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Width="25"
+                                Height="25"
+                                Foreground="#d05871"
+                                Kind="User" />
+                            <TextBox
+                                x:Name="txtUsername"
+                                Width="180"
+                                Margin="10,0"
+                                materialDesign:HintAssist.Hint="Username"
+                                BorderBrush="Black"
+                                CaretBrush="Red"
+                                Foreground="#563b66"
+                                SelectionBrush="#d05871" />
 
-
-                        <!--<Label Content="Username" Foreground="Gray" />-->
+                        </StackPanel>
+                        <StackPanel
+                            Margin="10,10,35,10"
+                            HorizontalAlignment="Center"
+                            Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Width="25"
+                                Height="25"
+                                Foreground="#f7d2de"
+                                Kind="Lock" />
+                            <PasswordBox
+                                x:Name="txtPassword"
+                                Width="180"
+                                Margin="10,0"
+                                materialDesign:HintAssist.Hint="Password"
+                                BorderBrush="Black"
+                                CaretBrush="red"
+                                Foreground="#563b66"
+                                SelectionBrush="#d05871" />
+                        </StackPanel>
+                        <StackPanel Margin="10" HorizontalAlignment="Center">
+                            <Button
+                                x:Name="btwLogin"
+                                Width="70"
+                                Height="40"
+                                Margin="20"
+                                materialDesign:ButtonAssist.CornerRadius="10"
+                                Background="#563b66"
+                                BorderBrush="#563b66"
+                                BorderThickness="1"
+                                Click="btwLogin_Click"
+                                Content="Log in"
+                                Foreground="White"
+                                Style="{StaticResource MaterialDesignRaisedButton}"
+                                ToolTip="Login" />
+                        </StackPanel>
                     </StackPanel>
-                    <StackPanel
-                        Margin="10,10,35,10"
-                        HorizontalAlignment="Center"
-                        Orientation="Horizontal">
-                        <materialDesign:PackIcon
-                            Width="25"
-                            Height="25"
-                            Foreground="#f7d2de"
-                            Kind="Lock" />
-                        <PasswordBox
-                            x:Name="txtPassword"
-                            Width="180"
-                            Margin="10,0"
-                            materialDesign:HintAssist.Hint="Password"
-                            BorderBrush="Black"
-                            CaretBrush="red"
-                            Foreground="#563b66"
-                            SelectionBrush="#d05871" />
+
+                    <StackPanel>
+                        <Separator Margin="20" Background="#d05871" />
                     </StackPanel>
-                    <StackPanel Margin="10" HorizontalAlignment="Center">
-                        <Button
-                            x:Name="btwLogin"
-                            Width="80"
-                            Height="40"
-                            Margin="0,0,0,0"
-                            materialDesign:ButtonAssist.CornerRadius="10"
-                            Background="#563b66"
-                            BorderBrush="#563b66"
-                            BorderThickness="1"
-                            Click="btwLogin_Click"
-                            Content="Log in"
-                            Foreground="White"
-                            Style="{StaticResource MaterialDesignRaisedButton}"
-                            ToolTip="Login" />
 
-
+                    <StackPanel>
+                        <TextBlock
+                            Margin="20,20,20,20"
+                            FontFamily="Freestyle Script Bold"
+                            FontSize="45"
+                            Foreground="#2c363f"
+                            Text="New Account"
+                            TextAlignment="Center" />
+                        <StackPanel
+                            Margin="10,10,35,10"
+                            HorizontalAlignment="Center"
+                            Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Width="25"
+                                Height="25"
+                                Foreground="#d05871"
+                                Kind="User" />
+                            <TextBox
+                                x:Name="txtNewUsername"
+                                Width="180"
+                                Margin="10,0"
+                                materialDesign:HintAssist.Hint="Username"
+                                BorderBrush="Black"
+                                CaretBrush="Red"
+                                Foreground="#563b66"
+                                SelectionBrush="#d05871" />
+                        </StackPanel>
+                        <StackPanel
+                            Margin="10,10,35,10"
+                            HorizontalAlignment="Center"
+                            Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Width="25"
+                                Height="25"
+                                Foreground="#f7d2de"
+                                Kind="Lock" />
+                            <PasswordBox
+                                x:Name="txtNewPassword"
+                                Width="180"
+                                Margin="10,0"
+                                materialDesign:HintAssist.Hint="Password"
+                                BorderBrush="Black"
+                                CaretBrush="red"
+                                Foreground="#563b66"
+                                SelectionBrush="#d05871" />
+                        </StackPanel>
+                        <StackPanel Margin="10" HorizontalAlignment="Center">
+                            <Button
+                                x:Name="btwRegister"
+                                Width="85"
+                                Height="40"
+                                Margin="20"
+                                materialDesign:ButtonAssist.CornerRadius="10"
+                                Background="#563b66"
+                                BorderBrush="#563b66"
+                                BorderThickness="1"
+                                Click="btwRegister_Click"
+                                Content="Register"
+                                Foreground="White"
+                                Style="{StaticResource MaterialDesignRaisedButton}"
+                                ToolTip="Login" />
+                        </StackPanel>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

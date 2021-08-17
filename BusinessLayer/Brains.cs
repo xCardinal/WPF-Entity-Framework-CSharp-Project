@@ -25,36 +25,31 @@ namespace BusinessLayer
                 var listOfUsers =
                     db.Users.ToList();
 
-                foreach(var u in listOfUsers)
+                var query1 =
+                    db.Users.Where(u => u.UserName == user).FirstOrDefault();
+
+                if(query1 != null)
                 {
-                    if(u.UserName == user)
+                    if (query1.Status != 0)
                     {
-                        if(u.Status != 0)
+                        if (query1.Password == password)
                         {
-                            if (u.Password == password)
-                            {
-                                //OK
-                                return true;
-                            }
-                            else
-                            {
-                                //FAIL - password is wrong 
-                                return false;
-                            }
+                            //OK
+                            return true;
                         }
                         else
                         {
-                            //FAIL - Account status is 0
+                            //FAIL - password is wrong 
                             return false;
                         }
-                        
                     }
                     else
                     {
-                        //FAIL - User Doesn't exist
+                        //FAIL - Account status is 0
                         return false;
                     }
                 }
+
                 return false;
             }
         }
@@ -72,6 +67,27 @@ namespace BusinessLayer
                 db.Users.Add(newCust);
                 db.SaveChanges();
             }
+        }
+       public bool Create(
+       string newUserName,
+       string newPassword)
+        {
+            var newCust = new User() { UserName = newUserName, Password = newPassword };
+            using (var db = new SMDbContext())
+            {
+                var users = db.Users.ToList();
+                var user = db.Users.Where(c => c.UserName == newUserName).FirstOrDefault();
+                if (user == null)
+                {
+                    db.Users.Add(newCust);
+                    newCust.Status = 1;
+                    newCust.Type = "user";
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            Debug.WriteLine($"Username {newUserName} is taken!");
+            return false;
         }
         public bool Delete(int deletingID)
         {

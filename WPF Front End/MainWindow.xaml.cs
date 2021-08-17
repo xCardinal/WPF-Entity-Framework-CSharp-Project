@@ -58,5 +58,17 @@ namespace WPF_Front_End
         {
             Application.Current.Shutdown();
         }
+
+        private void btwRegister_Click(object sender, RoutedEventArgs e)
+        {
+            if (_mainBrain.Create(txtNewUsername.Text, txtNewPassword.Password))
+            {
+                MessageBox.Show("Registration Complete", "Congrats", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("Username is taken.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
