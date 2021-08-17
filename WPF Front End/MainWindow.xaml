@@ -100,7 +100,7 @@
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
-            <StackPanel Width="780">
+            <StackPanel Width="880">
                 <Image
                     Width="880"
                     Height="720"
@@ -108,24 +108,24 @@
                     Source="C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\BusinessLayer\Images\photo-1536440136628-849c177e76a1.jpg"
                     Stretch="Fill" />
             </StackPanel>
-            <StackPanel Width="100">
-                <Button
-                    x:Name="btnClose"
-                    Margin="10"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Background="{x:Null}"
-                    Click="btnClose_Click"
-                    Style="{StaticResource MaterialDesignFloatingActionButton}"
-                    ToolTip="Close">
-                    <materialDesign:PackIcon
-                        Width="20"
-                        Height="20"
-                        Foreground="Black"
-                        Kind="Close" />
 
-                </Button>
-            </StackPanel>
         </StackPanel>
+        <Button
+            x:Name="btnClose"
+            Margin="10"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Background="#66CF62C7"
+            BorderBrush="#66A03E99"
+            Click="btnClose_Click"
+            Foreground="#FFF7D2DE"
+            Style="{StaticResource MaterialDesignFloatingActionButton}"
+            ToolTip="Close">
+            <materialDesign:PackIcon
+                Width="20"
+                Height="20"
+                Foreground="White"
+                Kind="Close" />
+        </Button>
     </Grid>
 </Window>

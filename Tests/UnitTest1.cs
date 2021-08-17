@@ -33,13 +33,31 @@ namespace Tests
             {
                 var numberOfUsers = db.Users.Count();
 
-                _user.Create("Sergio Pessegueiro", "spYagami", "HelloGuys",1);
+                _user.Create("Sergio Pessegueiro", "spYagami", "HelloGuys",1,"admin");
 
                 var numberOfUsersAfter = db.Users.Count();
 
                 Assert.That(numberOfUsers + 1, Is.EqualTo(numberOfUsersAfter));
             }
         }
+
+        [Test]
+        public void WhenACustomersDetailsAreChanged_TheDatabaseIsUpdated()
+        {
+            using (var db = new SMDbContext())
+            {
+                _user.Create("Sergio Pessegueiro", "spYagami", "HelloGuys", 1, "user");
+                _user.Update("Sergio Pessegueiro", "spYagami", "HelloGuys", 1, "admin");
+
+                User updatedCustomer =
+                    db.Users
+                    .Where(u => u.UserName == "spYagami")
+                    .FirstOrDefault();
+
+                Assert.That(updatedCustomer.Type, Is.EqualTo("admin"));
+            }
+        }
+
         [Test]
         public void WhenACustomerIsRemoved_TheNumberOfCustomersDecreasesBy1()
         {

@@ -1,2 +1,5 @@
-﻿Insert into Users (UserName, Password, ContactName, Status)
-values('spYagami', 'HelloWorld', 'Sergio', '1')
+﻿Insert into Users (UserName, Password, ContactName, Status, Type)
+values('spYagami', 'HelloWorld', 'Sergio', '1', 'admin')
+
+select *
+from Users

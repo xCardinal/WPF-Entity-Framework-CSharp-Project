@@ -23,7 +23,7 @@ namespace WPF_Front_End
     /// </summary>
     public partial class MainWindow : Window
     {
-        //private Program _mainProgram = new Program();
+        private Brains _mainBrain = new Brains();
         public MainWindow()
         {
             InitializeComponent();
@@ -31,7 +31,14 @@ namespace WPF_Front_End
 
         private void btwLogin_Click(object sender, RoutedEventArgs e)
         {
-            //Do nothing
+            if(_mainBrain.Login(txtUsername.Text, txtPassword.Password))
+            {
+                MessageBox.Show("Login Successfully","Congrats", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("Account Details Wrong", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
