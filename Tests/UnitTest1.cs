@@ -1,7 +1,6 @@
 using NUnit.Framework;
 using BusinessLayer;
 using Data;
-using Database;
 using System.Linq;
 
 namespace Tests
@@ -27,7 +26,7 @@ namespace Tests
         }
 
         [Test]
-        public void WhenANewCustomerIsAdded_TheNumberOfCustemersIncreasesBy1()
+        public void WhenANewCustomerIsAdded_TheNumberOfCustomersIncreasesBy1()
         {
             using (var db = new SMDbContext())
             {
@@ -51,10 +50,9 @@ namespace Tests
 
                 User updatedCustomer =
                     db.Users
-                    .Where(u => u.UserName == "spYagami")
-                    .FirstOrDefault();
+                        .FirstOrDefault(u => u.UserName == "spYagami");
 
-                Assert.That(updatedCustomer.Type, Is.EqualTo("admin"));
+                if (updatedCustomer != null) Assert.That(updatedCustomer.Type, Is.EqualTo("admin"));
             }
         }
 
@@ -78,7 +76,7 @@ namespace Tests
                 var selectUser =
                     db.Users
                     .Where(u => u.UserName == "spYagami")
-                    .Select(u => u.UserID)
+                    .Select(u => u.UserId)
                     .FirstOrDefault();
 
                 var numberOfCustomersBefore = db.Users.ToList().Count();

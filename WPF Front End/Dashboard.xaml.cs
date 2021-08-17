@@ -26,7 +26,9 @@ namespace WPF_Front_End
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            this.Hide();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.ShowDialog();
         }
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {

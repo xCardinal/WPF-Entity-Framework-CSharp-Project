@@ -178,6 +178,7 @@
                     Stretch="Fill" />
             </StackPanel>
         </StackPanel>
+        <StackPanel />
         <Button
             x:Name="btnClose"
             Margin="10"

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-
-namespace Database
+namespace Data
 {
     public class User
     {
@@ -11,7 +9,7 @@ namespace Database
             Movie = new HashSet<Movie>();
         }
 
-        public int UserID { get; set; }
+        public int UserId { get; set; }
 
         public string ContactName { get; set; }
 

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace Database
+namespace Data
 {
     public class Movie
     {
@@ -13,8 +9,9 @@ namespace Database
             MovieDetails = new HashSet<MovieDetails>();
         }
 
-        public int MovieID { get; set; }
-        public int UserID { get; set; }
+        public int MovieId { get; set; }
+        public int UserId { get; set; }
+        public string MovieName { get; set; }
 
         //One to One
         public virtual User User { get; set; }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Database;
 using Data;
 using System.Diagnostics;
 
@@ -26,7 +25,7 @@ namespace BusinessLayer
                     db.Users.ToList();
 
                 var query1 =
-                    db.Users.Where(u => u.UserName == user).FirstOrDefault();
+                    db.Users.FirstOrDefault(u => u.UserName == user);
 
                 if(query1 != null)
                 {
@@ -61,10 +60,10 @@ namespace BusinessLayer
         int accountStatus,
             string accountType)
         {
-            var newCust = new User() { ContactName = newContactName, UserName = newUserName, Password = newPassword, Status=accountStatus=1, Type = "user" };
+            var newUser = new User() { ContactName = newContactName, UserName = newUserName, Password = newPassword, Status=accountStatus=1, Type = "user" };
             using (var db = new SMDbContext())
             {
-                db.Users.Add(newCust);
+                db.Users.Add(newUser);
                 db.SaveChanges();
             }
         }
@@ -72,16 +71,16 @@ namespace BusinessLayer
        string newUserName,
        string newPassword)
         {
-            var newCust = new User() { UserName = newUserName, Password = newPassword };
+            var newUser = new User() { UserName = newUserName, Password = newPassword };
             using (var db = new SMDbContext())
             {
                 var users = db.Users.ToList();
-                var user = db.Users.Where(c => c.UserName == newUserName).FirstOrDefault();
+                var user = db.Users.FirstOrDefault(c => c.UserName == newUserName);
                 if (user == null)
                 {
-                    db.Users.Add(newCust);
-                    newCust.Status = 1;
-                    newCust.Type = "user";
+                    db.Users.Add(newUser);
+                    newUser.Status = 1;
+                    newUser.Type = "user";
                     db.SaveChanges();
                     return true;
                 }
@@ -89,14 +88,14 @@ namespace BusinessLayer
             Debug.WriteLine($"Username {newUserName} is taken!");
             return false;
         }
-        public bool Delete(int deletingID)
+        public bool Delete(int deletingId)
         {
             using (var db = new SMDbContext())
             {
-                var customer = db.Users.Where(c => c.UserID == deletingID).FirstOrDefault();
+                var customer = db.Users.FirstOrDefault(c => c.UserId == deletingId);
                 if (customer == null)
                 {
-                    Debug.WriteLine($"Customer {deletingID} not found");
+                    Debug.WriteLine($"Customer {deletingId} not found");
                     return false;
                 }
                 db.Users.RemoveRange(customer);
@@ -113,7 +112,7 @@ namespace BusinessLayer
         {
             using (var db = new SMDbContext())
             {
-                var user = db.Users.Where(c => c.UserName == userName).FirstOrDefault();
+                var user = db.Users.FirstOrDefault(c => c.UserName == userName);
                 if (user == null)
                 {
                     Debug.WriteLine($"User {user} not found");
