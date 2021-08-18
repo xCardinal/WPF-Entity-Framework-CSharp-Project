@@ -164,6 +164,13 @@ namespace BusinessLayer
                 return db.Movies.ToList();
             }
         }
+        public List<Movie> RetrieveMovie(string movieName)
+        {
+            using(var db = new SMDbContext())
+            {
+                return db.Movies.Where(m => m.MovieName.Contains(movieName)).ToList();
+            }
+        }
 
     }
 }

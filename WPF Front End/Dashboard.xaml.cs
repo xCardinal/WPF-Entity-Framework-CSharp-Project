@@ -24,7 +24,6 @@ namespace WPF_Front_End
         public Dashboard()
         {
             InitializeComponent();
-            RetreiveMovies();
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -58,12 +57,27 @@ namespace WPF_Front_End
 
         private void listOfMovies_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            //Update details about movie
         }
 
         private void btnSelect_Click(object sender, RoutedEventArgs e)
         {
+            //Ok Button
 
+            if(txtSearch.Text == "/movies")
+            {
+                //Display all movies
+            }
+            else if(txtSearch.Text == "/love")
+            {
+                //Display list of fav movies
+            }
+            else
+            {
+                listOfMovies.ItemsSource = _mainBrain.RetrieveMovie(txtSearch.Text);
+
+                //Retrieve txtSearch.Text movie from db.
+            }
         }
     }
 }

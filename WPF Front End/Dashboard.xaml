@@ -24,8 +24,8 @@
             MouseDown="Border_MouseDown" />
         <Image
             HorizontalAlignment="Center"
-            OpacityMask="#BF000000"
-            Source="C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\BusinessLayer\Images\jakob-owens-CiUR8zISX60-unsplash.jpg"
+            OpacityMask="#E5000000"
+            Source="C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\BusinessLayer\Images\2063914.jpg"
             Stretch="Fill" />
         <Button
             x:Name="btnClose"
@@ -44,9 +44,9 @@
                 Foreground="White"
                 Kind="Close" />
         </Button>
-        <StackPanel Margin="75" Background="#7FCDCDCD">
+        <StackPanel Margin="10" VerticalAlignment="Center">
 
-            <StackPanel>
+            <StackPanel Background="#7F000000">
                 <TextBlock
                     Margin="20,20,20,20"
                     HorizontalAlignment="Center"
@@ -57,94 +57,107 @@
                     TextAlignment="Center" />
             </StackPanel>
 
+            <StackPanel
+                Height="355"
+                Margin="5,0,5,0"
+                Background="#7FCDCDCD">
+                <ListBox
+                    x:Name="listOfMovies"
+                    Height="200"
+                    Margin="20,20,20,20"
+                    HorizontalContentAlignment="Center"
+                    Background="#FF323232"
+                    FontSize="25"
+                    Foreground="White"
+                    SelectionChanged="listOfMovies_SelectionChanged" />
 
-            <ListBox
-                x:Name="listOfMovies"
-                Height="200"
-                Margin="20,20,20,20"
-                HorizontalContentAlignment="Center"
-                Background="#FF323232"
-                FontSize="25"
-                Foreground="White"
-                SelectionChanged="listOfMovies_SelectionChanged" />
+                <StackPanel>
 
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
 
-            <StackPanel>
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Margin="200,0,200,0"
+                            HorizontalContentAlignment="Center"
+                            Background="#7FCDCDCD"
+                            BorderBrush="#7FCDCDCD"
+                            BorderThickness="3">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox
+                                    x:Name="txtSearch"
+                                    Grid.Column="0"
+                                    Width="300"
+                                    Height="40"
+                                    Margin="20"
+                                    Background="#7F959292"
+                                    BorderBrush="#7FCDCDCD"
+                                    CaretBrush="DeepPink"
+                                    FontSize="20"
+                                    Foreground="white"
+                                    SelectionBrush="#d05871"
+                                    TextAlignment="Center"
+                                    ToolTip="Type in" />
+                                <Button
+                                    x:Name="btnSelect"
+                                    Grid.Column="1"
+                                    Width="85"
+                                    Height="40"
+                                    Margin="20"
+                                    materialDesign:ButtonAssist.CornerRadius="0"
+                                    Background="#FF323232"
+                                    BorderBrush="#7FCDCDCD"
+                                    BorderThickness="1"
+                                    Click="btnSelect_Click"
+                                    Content="Ok"
+                                    Foreground="White"
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    ToolTip="Select Typed text" />
+                                <Button
+                                    x:Name="btnUpdateMovieList"
+                                    Grid.Column="1"
+                                    Width="85"
+                                    Height="40"
+                                    Margin="20"
+                                    materialDesign:ButtonAssist.CornerRadius="0"
+                                    Background="#FF323232"
+                                    BorderBrush="#7FCDCDCD"
+                                    BorderThickness="1"
+                                    Click="UpdateMovieList"
+                                    Content="Update"
+                                    Foreground="White"
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    ToolTip="Update Movie List" />
+                                <Button
+                                    x:Name="btnAddFavourite"
+                                    Grid.Column="1"
+                                    Width="85"
+                                    Height="40"
+                                    Margin="20"
+                                    materialDesign:ButtonAssist.CornerRadius="0"
+                                    Background="#FFD05871"
+                                    BorderBrush="#FFF7D2DE"
+                                    BorderThickness="1"
+                                    Click="UpdateMovieList"
+                                    Content="Love"
+                                    Foreground="White"
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    ToolTip="Add to Favourites" />
+                            </StackPanel>
 
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
+                        </Label>
 
-                    <Label
-                        Grid.Row="1"
-                        Grid.Column="0"
-                        Margin="200,0,200,0"
-                        HorizontalContentAlignment="Center"
-                        Background="#7FCDCDCD"
-                        BorderBrush="#7FCDCDCD"
-                        BorderThickness="3">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBox
-                                x:Name="tbxSearch"
-                                Grid.Column="0"
-                                Width="300"
-                                Height="40"
-                                Margin="20"
-                                Background="#7F959292"
-                                BorderBrush="#7FCDCDCD"
-                                CaretBrush="DeepPink"
-                                FontSize="20"
-                                Foreground="white"
-                                SelectionBrush="#d05871"
-                                TextAlignment="Center"
-                                ToolTip="Type in" />
-                            <Button
-                                x:Name="btnSelect"
-                                Grid.Column="1"
-                                Width="85"
-                                Height="40"
-                                Margin="20"
-                                materialDesign:ButtonAssist.CornerRadius="0"
-                                Background="#FF323232"
-                                BorderBrush="#563b66"
-                                BorderThickness="1"
-                                Click="btnSelect_Click"
-                                Content="Select"
-                                Foreground="White"
-                                Style="{StaticResource MaterialDesignFlatButton}"
-                                ToolTip="Search" />
-                            <Button
-                                x:Name="btnUpdateMovieList"
-                                Grid.Column="1"
-                                Width="85"
-                                Height="40"
-                                Margin="20"
-                                materialDesign:ButtonAssist.CornerRadius="0"
-                                Background="#FF323232"
-                                BorderBrush="#7FCDCDCD"
-                                BorderThickness="1"
-                                Click="UpdateMovieList"
-                                Content="Update"
-                                Foreground="White"
-                                Style="{StaticResource MaterialDesignFlatButton}"
-                                ToolTip="Update Movie List" />
-                        </StackPanel>
+                    </Grid>
 
-                    </Label>
-
-
-
-
-
-
-                </Grid>
+                </StackPanel>
 
             </StackPanel>
 
-
-
         </StackPanel>
+        <StackPanel />
 
     </Grid>
 </Window>
