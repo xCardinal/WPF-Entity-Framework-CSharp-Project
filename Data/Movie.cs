@@ -6,18 +6,14 @@ namespace Data
     {
         public Movie()
         {
-            MovieDetails = new HashSet<MovieDetails>();
+            MovieFavourites = new HashSet<MovieFavourites>();
         }
 
         public int MovieId { get; set; }
-        public int UserId { get; set; }
         public string MovieName { get; set; }
+        public string CategoryName { get; set; }
 
-        //One to One
-        public virtual User User { get; set; }
-
-        //One to many
-        public virtual ICollection<MovieDetails> MovieDetails { get; set; }
-
+        //One to Many
+        public virtual ICollection<MovieFavourites> MovieFavourites { get; set; }
     }
 }

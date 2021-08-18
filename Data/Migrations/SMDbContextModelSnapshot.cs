@@ -18,26 +18,9 @@ namespace Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.9")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Database.Movie", b =>
+            modelBuilder.Entity("Data.Movie", b =>
                 {
-                    b.Property<int>("MovieID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
-
-                    b.HasKey("MovieID");
-
-                    b.HasIndex("UserID");
-
-                    b.ToTable("Movies");
-                });
-
-            modelBuilder.Entity("Database.MovieDetails", b =>
-                {
-                    b.Property<int>("MovieDetailsID")
+                    b.Property<int>("MovieId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -45,19 +28,39 @@ namespace Data.Migrations
                     b.Property<string>("CategoryName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MovieID")
-                        .HasColumnType("int");
+                    b.Property<string>("MovieName")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("MovieDetailsID");
+                    b.HasKey("MovieId");
 
-                    b.HasIndex("MovieID");
-
-                    b.ToTable("MovieDetails");
+                    b.ToTable("Movies");
                 });
 
-            modelBuilder.Entity("Database.User", b =>
+            modelBuilder.Entity("Data.MovieFavourites", b =>
                 {
-                    b.Property<int>("UserID")
+                    b.Property<int>("MovieFavouritesId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("MovieFavouritesId");
+
+                    b.HasIndex("MovieId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("MovieFavourites");
+                });
+
+            modelBuilder.Entity("Data.User", b =>
+                {
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -77,41 +80,38 @@ namespace Data.Migrations
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UserID");
+                    b.HasKey("UserId");
 
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Database.Movie", b =>
+            modelBuilder.Entity("Data.MovieFavourites", b =>
                 {
-                    b.HasOne("Database.User", "User")
-                        .WithMany("Movie")
-                        .HasForeignKey("UserID")
+                    b.HasOne("Data.Movie", "Movie")
+                        .WithMany("MovieFavourites")
+                        .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Data.User", "User")
+                        .WithMany("MovieFavourites")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Movie");
 
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Database.MovieDetails", b =>
+            modelBuilder.Entity("Data.Movie", b =>
                 {
-                    b.HasOne("Database.Movie", "Movie")
-                        .WithMany("MovieDetails")
-                        .HasForeignKey("MovieID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Movie");
+                    b.Navigation("MovieFavourites");
                 });
 
-            modelBuilder.Entity("Database.Movie", b =>
+            modelBuilder.Entity("Data.User", b =>
                 {
-                    b.Navigation("MovieDetails");
-                });
-
-            modelBuilder.Entity("Database.User", b =>
-                {
-                    b.Navigation("Movie");
+                    b.Navigation("MovieFavourites");
                 });
 #pragma warning restore 612, 618
         }
