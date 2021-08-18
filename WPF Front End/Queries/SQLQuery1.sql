@@ -25,6 +25,12 @@ values('Fantasy','Harry Potter and the Deathly Hallows: Part 1')
 insert into Movies(CategoryName, MovieName)
 values('Fantasy','Harry Potter and the Deathly Hallows: Part 2')
 
+insert into Movies(CategoryName, MovieName)
+values('Sci-fi/Adventure','Interstellar')
+
+insert into Movies(CategoryName, MovieName)
+values('Sci-fi/Drama','The Martian')
+
 select *
 from Users u
 join MovieFavourites mf on u.UserId = mf.UserId

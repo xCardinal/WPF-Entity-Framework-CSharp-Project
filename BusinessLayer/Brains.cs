@@ -25,7 +25,7 @@ namespace BusinessLayer
                     db.Users.ToList();
 
                 var query1 =
-                    db.Users.FirstOrDefault(u => u.UserName == user);
+                    db.Users.FirstOrDefault(u => u.UserName.ToLower() == user);
 
                 if(query1 != null)
                 {

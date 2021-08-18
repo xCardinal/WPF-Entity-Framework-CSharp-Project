@@ -55,12 +55,12 @@ namespace WPF_Front_End
             RetreiveMovies();
         }
 
-        private void listOfMovies_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void SelectionChangedMethod(object sender, SelectionChangedEventArgs e)
         {
             //Update details about movie
         }
 
-        private void btnSelect_Click(object sender, RoutedEventArgs e)
+        private void Select(object sender, RoutedEventArgs e)
         {
             //Ok Button
 
@@ -78,6 +78,11 @@ namespace WPF_Front_End
 
                 //Retrieve txtSearch.Text movie from db.
             }
+        }
+
+        private void Add_Remove_Favourite(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

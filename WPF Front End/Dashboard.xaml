@@ -24,7 +24,7 @@
             MouseDown="Border_MouseDown" />
         <Image
             HorizontalAlignment="Center"
-            OpacityMask="#E5000000"
+            OpacityMask="#F2000000"
             Source="C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\BusinessLayer\Images\2063914.jpg"
             Stretch="Fill" />
         <Button
@@ -32,7 +32,7 @@
             Margin="10"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
-            Background="#7F5991A6"
+            Background="#7F598392"
             BorderBrush="#7FCDCDCD"
             Click="btnClose_Click"
             Foreground="#7FCDCDCD"
@@ -60,16 +60,16 @@
             <StackPanel
                 Height="355"
                 Margin="5,0,5,0"
-                Background="#7FCDCDCD">
+                Background="#7FD6D5D1">
                 <ListBox
                     x:Name="listOfMovies"
                     Height="200"
                     Margin="20,20,20,20"
                     HorizontalContentAlignment="Center"
-                    Background="#FF323232"
+                    Background="#FF1B1B1B"
                     FontSize="25"
                     Foreground="White"
-                    SelectionChanged="listOfMovies_SelectionChanged" />
+                    SelectionChanged="SelectionChangedMethod" />
 
                 <StackPanel>
 
@@ -93,9 +93,9 @@
                                     Width="300"
                                     Height="40"
                                     Margin="20"
-                                    Background="#7F959292"
-                                    BorderBrush="#7FCDCDCD"
-                                    CaretBrush="DeepPink"
+                                    Background="#3F1B1B1B"
+                                    BorderBrush="#FF1B1B1B"
+                                    CaretBrush="red"
                                     FontSize="20"
                                     Foreground="white"
                                     SelectionBrush="#d05871"
@@ -111,7 +111,7 @@
                                     Background="#FF323232"
                                     BorderBrush="#7FCDCDCD"
                                     BorderThickness="1"
-                                    Click="btnSelect_Click"
+                                    Click="Select"
                                     Content="Ok"
                                     Foreground="White"
                                     Style="{StaticResource MaterialDesignFlatButton}"
@@ -138,10 +138,10 @@
                                     Height="40"
                                     Margin="20"
                                     materialDesign:ButtonAssist.CornerRadius="0"
-                                    Background="#FFD05871"
-                                    BorderBrush="#FFF7D2DE"
+                                    Background="#802024"
+                                    BorderBrush="#7FCDCDCD"
                                     BorderThickness="1"
-                                    Click="UpdateMovieList"
+                                    Click="Add_Remove_Favourite"
                                     Content="Love"
                                     Foreground="White"
                                     Style="{StaticResource MaterialDesignFlatButton}"

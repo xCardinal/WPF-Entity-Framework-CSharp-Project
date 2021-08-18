@@ -89,8 +89,8 @@
                                 Height="40"
                                 Margin="20"
                                 materialDesign:ButtonAssist.CornerRadius="0"
-                                Background="#563b66"
-                                BorderBrush="#563b66"
+                                Background="#802024"
+                                BorderBrush="#802024"
                                 BorderThickness="1"
                                 Click="btwLogin_Click"
                                 Content="Log in"
@@ -101,7 +101,7 @@
                     </StackPanel>
 
                     <StackPanel>
-                        <Separator Margin="20" Background="#d05871" />
+                        <Separator Margin="20" Background="Red" />
                     </StackPanel>
 
                     <StackPanel>
@@ -157,8 +157,8 @@
                                 Height="40"
                                 Margin="20"
                                 materialDesign:ButtonAssist.CornerRadius="0"
-                                Background="#563b66"
-                                BorderBrush="#563b66"
+                                Background="#7b1920"
+                                BorderBrush="#7b1920"
                                 BorderThickness="1"
                                 Click="BtwRegister_Click"
                                 Content="Register"
@@ -174,7 +174,7 @@
                     Width="880"
                     Height="720"
                     HorizontalAlignment="Left"
-                    Source="C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\BusinessLayer\Images\photo-1536440136628-849c177e76a1.jpg"
+                    Source="C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\BusinessLayer\Images\photo-1489599849927-2ee91cede3ba.jpg"
                     Stretch="Fill" />
             </StackPanel>
         </StackPanel>
@@ -184,7 +184,7 @@
             Margin="10"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
-            Background="#66CF62C7"
+            Background="#66598392"
             BorderBrush="#66A03E99"
             Click="btnClose_Click"
             Foreground="#FFF7D2DE"

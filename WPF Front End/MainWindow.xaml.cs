@@ -31,7 +31,7 @@ namespace WPF_Front_End
 
         private void btwLogin_Click(object sender, RoutedEventArgs e)
         {
-            if(_mainBrain.Login(txtUsername.Text, txtPassword.Password))
+            if(_mainBrain.Login(txtUsername.Text.ToLower(), txtPassword.Password))
             {
                 //MessageBox.Show("Login Successfully","Congrats", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.Hide();
