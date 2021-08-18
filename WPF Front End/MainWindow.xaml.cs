@@ -37,6 +37,7 @@ namespace WPF_Front_End
                 this.Hide();
                 Dashboard dashboard = new Dashboard();
                 dashboard.ShowDialog();
+                dashboard.RetreiveMovies();
             }
             else
             {

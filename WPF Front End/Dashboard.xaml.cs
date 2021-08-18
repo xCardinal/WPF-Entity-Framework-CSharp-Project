@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace WPF_Front_End
     /// </summary>
     public partial class Dashboard : Window
     {
+        private Brains _mainBrain = new Brains();
         public Dashboard()
         {
             InitializeComponent();
@@ -41,6 +43,15 @@ namespace WPF_Front_End
 
             }
 
+        }
+        public void RetreiveMovies()
+        {
+            
+        }
+
+        private void btnUpdateMovieList_Click(object sender, RoutedEventArgs e)
+        {
+            RetreiveMovies();
         }
     }
 }

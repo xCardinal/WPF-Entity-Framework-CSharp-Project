@@ -115,7 +115,7 @@ namespace BusinessLayer
                 var user = db.Users.FirstOrDefault(c => c.UserName == userName);
                 if (user == null)
                 {
-                    Debug.WriteLine($"User {(User?) null} not found");
+                    Debug.WriteLine($"User {user} not found");
                     return false;
                 }
                 user.ContactName = contactName;
@@ -136,6 +136,26 @@ namespace BusinessLayer
                 }
             }
             return true;
+        }
+
+
+        public List<Tuple<string, string>> ListOfMovies()
+        {
+            List<Tuple<string, string>> output = new List<Tuple<string, string>>();
+
+            using (var db = new SMDbContext())
+            {
+                var query1 =
+                    db.Movies.Select(m => m).ToList();
+
+
+                foreach (var movie in query1)
+                {
+                    output.Add(Tuple.Create(movie.MovieName, movie.CategoryName));
+                }
+
+                return output;
+            }
         }
 
     }

@@ -39,6 +39,45 @@
                 Foreground="White"
                 Kind="Close" />
         </Button>
+        <StackPanel Margin="75" Background="#7F563B66">
+
+            <StackPanel>
+                <TextBlock
+                    Margin="20,20,20,20"
+                    FontFamily="Freestyle Script Bold"
+                    FontSize="45"
+                    Foreground="White"
+                    Text="Welcome"
+                    TextAlignment="Center" />
+            </StackPanel>
+
+
+            <ListBox
+                x:Name="listOfMovies"
+                Height="200"
+                Margin="20,20,20,20"
+                Background="#563b66"
+                FontFamily="Freestyle Script Regular"
+                FontSize="45"
+                Foreground="White" />
+
+            <Button
+                x:Name="btnUpdateMovieList"
+                Width="85"
+                Height="40"
+                Margin="20"
+                materialDesign:ButtonAssist.CornerRadius="10"
+                Background="#563b66"
+                BorderBrush="#563b66"
+                BorderThickness="1"
+                Click="btnUpdateMovieList_Click"
+                Content="Update"
+                Foreground="White"
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                ToolTip="Update Movie List" />
+
+
+        </StackPanel>
 
     </Grid>
 </Window>
