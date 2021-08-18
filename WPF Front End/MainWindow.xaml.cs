@@ -37,7 +37,6 @@ namespace WPF_Front_End
                 this.Hide();
                 Dashboard dashboard = new Dashboard();
                 dashboard.ShowDialog();
-                dashboard.RetreiveMovies();
             }
             else
             {
@@ -63,7 +62,7 @@ namespace WPF_Front_End
             Application.Current.Shutdown();
         }
 
-        private void btwRegister_Click(object sender, RoutedEventArgs e)
+        private void BtwRegister_Click(object sender, RoutedEventArgs e)
         {
             if (_mainBrain.Create(txtNewUsername.Text, txtNewPassword.Password))
             {

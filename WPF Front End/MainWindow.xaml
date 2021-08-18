@@ -88,7 +88,7 @@
                                 Width="70"
                                 Height="40"
                                 Margin="20"
-                                materialDesign:ButtonAssist.CornerRadius="10"
+                                materialDesign:ButtonAssist.CornerRadius="0"
                                 Background="#563b66"
                                 BorderBrush="#563b66"
                                 BorderThickness="1"
@@ -127,7 +127,7 @@
                                 Margin="10,0"
                                 materialDesign:HintAssist.Hint="Username"
                                 BorderBrush="Black"
-                                CaretBrush="Red"
+                                CaretBrush="DeepPink"
                                 Foreground="#563b66"
                                 SelectionBrush="#d05871" />
                         </StackPanel>
@@ -146,7 +146,7 @@
                                 Margin="10,0"
                                 materialDesign:HintAssist.Hint="Password"
                                 BorderBrush="Black"
-                                CaretBrush="red"
+                                CaretBrush="DeepPink"
                                 Foreground="#563b66"
                                 SelectionBrush="#d05871" />
                         </StackPanel>
@@ -156,11 +156,11 @@
                                 Width="85"
                                 Height="40"
                                 Margin="20"
-                                materialDesign:ButtonAssist.CornerRadius="10"
+                                materialDesign:ButtonAssist.CornerRadius="0"
                                 Background="#563b66"
                                 BorderBrush="#563b66"
                                 BorderThickness="1"
-                                Click="btwRegister_Click"
+                                Click="BtwRegister_Click"
                                 Content="Register"
                                 Foreground="White"
                                 Style="{StaticResource MaterialDesignRaisedButton}"
@@ -188,7 +188,7 @@
             BorderBrush="#66A03E99"
             Click="btnClose_Click"
             Foreground="#FFF7D2DE"
-            Style="{StaticResource MaterialDesignFloatingActionButton}"
+            Style="{StaticResource MaterialDesignFlatButton}"
             ToolTip="Close">
             <materialDesign:PackIcon
                 Width="20"

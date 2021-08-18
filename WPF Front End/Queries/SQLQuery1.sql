@@ -7,6 +7,12 @@ values('Fantasy','Harry Potter and the Philosopher"s Stone')
 insert into Movies(CategoryName, MovieName)
 values('Fantasy','Harry Potter and the Chamber of Secrets')
 
+insert into Movies(CategoryName, MovieName)
+values('Fantasy','Harry Potter and the Prisoner of Azkaban')
+
+insert into Movies(CategoryName, MovieName)
+values('Fantasy','Harry Potter and the Goblet of Fire')
+
 select *
 from Users u
 join MovieFavourites mf on u.UserId = mf.UserId

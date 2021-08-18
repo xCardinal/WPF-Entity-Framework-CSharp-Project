@@ -24,6 +24,7 @@ namespace WPF_Front_End
         public Dashboard()
         {
             InitializeComponent();
+            RetreiveMovies();
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -46,12 +47,23 @@ namespace WPF_Front_End
         }
         public void RetreiveMovies()
         {
-            
+            //listOfMovies.ItemsSource = _mainBrain.ListOfMovies();
+            listOfMovies.ItemsSource = _mainBrain.RetrieveAll();
         }
 
-        private void btnUpdateMovieList_Click(object sender, RoutedEventArgs e)
+        private void UpdateMovieList(object sender, RoutedEventArgs e)
         {
             RetreiveMovies();
+        }
+
+        private void listOfMovies_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void btnSelect_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

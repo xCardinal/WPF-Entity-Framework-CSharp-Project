@@ -2,7 +2,7 @@
 
 namespace Data
 {
-    public class Movie
+    public partial class Movie
     {
         public Movie()
         {

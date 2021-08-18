@@ -157,6 +157,13 @@ namespace BusinessLayer
                 return output;
             }
         }
+        public List<Movie> RetrieveAll()
+        {
+            using (var db = new SMDbContext())
+            {
+                return db.Movies.ToList();
+            }
+        }
 
     }
 }
