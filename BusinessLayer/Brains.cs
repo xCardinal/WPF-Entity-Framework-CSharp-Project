@@ -228,29 +228,29 @@ namespace BusinessLayer
             {
                 using (var db = new SMDbContext())
                 {
-                    if (SelectedMovie != null)
+                    if (SelectedUser != null)
                     {
-                        //var query1 =
-                        //    db.MovieFavourites.Include(u=> db.Movies).ThenInclude(m=>m.MovieName)
-                        //    .Where(u => u.UserId == SelectedUser.UserId)
-                        //    .Select(m => m.MovieId)
-                        //    .ToList();
-
-                        var query3 =
-                            db.Movies
-                            .Where(m => m.MovieId == SelectedMovie.MovieId)
-                            .Select(m => m).ToList();
-
-                        //var query2 =
-                        //    from movie in db.Movies
-                        //    join movieFavourites in db.MovieFavourites on movie.MovieId equals movieFavourites.MovieId
-                        //    select (movie.MovieName).ToList();
-
-
-
-                        if (query3 != null)
+                        var query =
+                            db.Users.Include(u=>u.MovieFavourites)
+                            .ThenInclude(mv=>mv.Movie)
+                            .Where(u=>u.UserId ==SelectedUser.UserId)
+                            .Select(m => m).FirstOrDefault();
+                        
+                        if (query != null)
                         {
-                            return query3;
+
+                            List<Movie> FavMovies = new();
+
+                            foreach(var title in query.MovieFavourites)
+                            {
+                                FavMovies.Add(title.Movie);
+                            }
+
+                            FavMovies.OrderBy(x => x.MovieName);
+
+                            var newList = FavMovies.OrderBy(x => x.MovieName);
+
+                            return newList.ToList();
                         }
                     }
                     return new List<Movie>();

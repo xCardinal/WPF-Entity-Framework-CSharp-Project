@@ -6,7 +6,7 @@ namespace Data
     {
         public Movie()
         {
-            //MovieFavourites = new HashSet<MovieFavourites>();
+            MovieFavourites = new HashSet<MovieFavourites>();
         }
 
         public int MovieId { get; set; }
@@ -14,6 +14,6 @@ namespace Data
         public string CategoryName { get; set; }
 
         //One to Many
-        //public virtual ICollection<MovieFavourites> MovieFavourites { get; set; }
+        public virtual ICollection<MovieFavourites> MovieFavourites { get; set; }
     }
 }
