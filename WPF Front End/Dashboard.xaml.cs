@@ -79,7 +79,7 @@ namespace WPF_Front_End
             else if(txtSearch.Text == "/love")
             {
                 //Display list of fav movies
-                listOfMoviesBox.ItemsSource = _mainBrain.RetrieveFavourites();
+                listOfMoviesBox.ItemsSource = _mainBrain.RetrieveFavourites;
             }
             else if(txtSearch.Text != string.Empty)
             {

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(SMDbContext))]
-    [Migration("20210819110030_FirstMigration")]
+    [Migration("20210819114309_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,10 +53,6 @@ namespace Data.Migrations
 
                     b.HasKey("MovieFavouritesId");
 
-                    b.HasIndex("MovieId");
-
-                    b.HasIndex("UserId");
-
                     b.ToTable("MovieFavourites");
                 });
 
@@ -85,35 +81,6 @@ namespace Data.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("Data.MovieFavourites", b =>
-                {
-                    b.HasOne("Data.Movie", "Movie")
-                        .WithMany("MovieFavourites")
-                        .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Data.User", "User")
-                        .WithMany("MovieFavourites")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Movie");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Data.Movie", b =>
-                {
-                    b.Navigation("MovieFavourites");
-                });
-
-            modelBuilder.Entity("Data.User", b =>
-                {
-                    b.Navigation("MovieFavourites");
                 });
 #pragma warning restore 612, 618
         }

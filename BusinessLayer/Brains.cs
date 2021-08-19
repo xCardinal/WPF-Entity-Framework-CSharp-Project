@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Data;
 using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 
 namespace BusinessLayer
 {
@@ -190,54 +191,71 @@ namespace BusinessLayer
 
             using (var db = new SMDbContext())
             {
-                var queryOfMovies =
-                    db.MovieFavourites.Where(fm=>fm.MovieId == SelectedMovie.MovieId).FirstOrDefault();
-
-                if(queryOfMovies == null)
+                if(db.MovieFavourites.Count()>0 && SelectedMovie != null)
                 {
-                    MovieFavourites newMovieFavourite = new MovieFavourites();
-                    //newMovieFavourite.User = SelectedUser;
-                    //newMovieFavourite.Movie = SelectedMovie;
+                    var queryOfMovies =
+                    db.MovieFavourites.Where(fm => fm.MovieId == SelectedMovie.MovieId).FirstOrDefault();
 
-                    SelectedMovie.MovieFavourites.Add(newMovieFavourite);
-                    SelectedUser.MovieFavourites.Add(newMovieFavourite);
+                    if (queryOfMovies == null)
+                    {
+                        MovieFavourites newMovieFavourite = new MovieFavourites();
+                        newMovieFavourite.UserId = SelectedUser.UserId;
+                        newMovieFavourite.MovieId = SelectedMovie.MovieId;
 
-                    //Add to Favourites -  Push into table
-                    db.MovieFavourites.Add(newMovieFavourite);
-                    db.SaveChanges();
+                        //SelectedMovie.MovieFavourites.Add(newMovieFavourite);
+                        //SelectedUser.MovieFavourites.Add(newMovieFavourite);
+
+                        //Add to Favourites -  Push into table
+                        db.MovieFavourites.Add(newMovieFavourite);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        //Remove from Favourites - Remove from table
+                        //db.MovieFavourites.Remove((MovieFavourites)SelectedMovie.MovieFavourites);
+                        db.SaveChanges();
+                    }
                 }
-                else
-                {
-                    //Remove from Favourites - Remove from table
-                    db.MovieFavourites.Remove((MovieFavourites)SelectedMovie.MovieFavourites);
-                    db.SaveChanges();
-                }
-
             }
 
             //I can either have a list with all of the favourite movies from everyone
             //and only display the apporpriate 
         }
 
-        public List<Movie> RetrieveFavourites()
+        public List<Movie> RetrieveFavourites
         {
-            using (var db = new SMDbContext())
+            get
             {
-                if(SelectedMovie != null)
+                using (var db = new SMDbContext())
                 {
-                    var query1 = db.MovieFavourites
-                    .Where(u => u.UserId == SelectedUser.UserId)
-                    .Select(m => m.Movie)
-                    .ToList();
-
-                    if (query1 != null)
+                    if (SelectedMovie != null)
                     {
-                        return query1;
-                    }   
+                        //var query1 =
+                        //    db.MovieFavourites.Include(u=> db.Movies).ThenInclude(m=>m.MovieName)
+                        //    .Where(u => u.UserId == SelectedUser.UserId)
+                        //    .Select(m => m.MovieId)
+                        //    .ToList();
+
+                        var query3 =
+                            db.Movies
+                            .Where(m => m.MovieId == SelectedMovie.MovieId)
+                            .Select(m => m).ToList();
+
+                        //var query2 =
+                        //    from movie in db.Movies
+                        //    join movieFavourites in db.MovieFavourites on movie.MovieId equals movieFavourites.MovieId
+                        //    select (movie.MovieName).ToList();
+
+
+
+                        if (query3 != null)
+                        {
+                            return query3;
+                        }
+                    }
+                    return new List<Movie>();
                 }
-                return new List<Movie>();
             }
         }
-
     }
 }

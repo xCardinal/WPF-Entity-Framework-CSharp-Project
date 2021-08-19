@@ -7,7 +7,7 @@ namespace Data
         public User()
         {
             //MovieFavouritesCollection = new HashSet<Movie>();
-            MovieFavourites = new HashSet<MovieFavourites>();
+            //MovieFavourites = new HashSet<MovieFavourites>();
         }
 
         public int UserId { get; set; }
@@ -19,6 +19,6 @@ namespace Data
 
         //public virtual ICollection<Movie> MovieFavouritesCollection { get; set; }
 
-        public virtual ICollection<MovieFavourites> MovieFavourites { get; set; }
+        //public virtual ICollection<MovieFavourites> MovieFavourites { get; set; }
     }
 }
