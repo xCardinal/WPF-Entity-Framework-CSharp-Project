@@ -11,10 +11,15 @@ namespace BusinessLayer
     public class Brains
     {
         public User SelectedUser { get; set; }
+        public Movie SelectedMovie { get; set; }
 
         public void SetSelectedUser(object selectedObject)
         {
             SelectedUser = (User)selectedObject;
+        }
+        public void SetSelectedMovie(object selectedObject)
+        {
+            SelectedMovie = (Movie)selectedObject;
         }
 
         public bool Login(string user, string password)
@@ -169,6 +174,51 @@ namespace BusinessLayer
             using(var db = new SMDbContext())
             {
                 return db.Movies.Where(m => m.MovieName.Contains(movieName)).ToList();
+            }
+        }
+
+        public void AddRemoveFavourite()
+        {
+
+            using (var db = new SMDbContext())
+            {
+                var queryOfMovies =
+                    db.MovieFavourites.Where(fm=>fm.MovieId == SelectedMovie.MovieId).FirstOrDefault();
+
+                if(queryOfMovies == null)
+                {
+                    //Add to Favourites -  Push into table
+                    db.MovieFavourites.Add((MovieFavourites)SelectedMovie.MovieFavourites);
+                }
+                else
+                {
+                    //Remove from Favourites - Remove from table
+                    db.MovieFavourites.Remove((MovieFavourites)SelectedMovie.MovieFavourites);
+                }
+
+            }
+
+            //I can either have a list with all of the favourite movies from everyone
+            //and only display the apporpriate 
+        }
+
+        public List<Movie> RetrieveFavourites()
+        {
+            using (var db = new SMDbContext())
+            {
+                if(SelectedMovie != null)
+                {
+                    var query1 = db.MovieFavourites
+                    .Where(u => u.UserId == SelectedUser.UserId)
+                    .Select(m => m.Movie)
+                    .ToList();
+
+                    if (query1 != null)
+                    {
+                        return query1;
+                    }   
+                }
+                return new List<Movie>();
             }
         }
 

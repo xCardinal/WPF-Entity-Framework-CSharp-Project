@@ -62,7 +62,7 @@
                 Margin="5,0,5,0"
                 Background="#7FD6D5D1">
                 <ListBox
-                    x:Name="listOfMovies"
+                    x:Name="listOfMoviesBox"
                     Height="200"
                     Margin="20,20,20,20"
                     HorizontalContentAlignment="Center"

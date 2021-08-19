@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,11 @@ namespace WPF_Front_End
             InitializeComponent();
         }
 
+        public void SetUser()
+        {
+            //_mainBrain.SelectedUser
+        }
+
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
@@ -47,17 +53,17 @@ namespace WPF_Front_End
         public void RetreiveMovies()
         {
             //listOfMovies.ItemsSource = _mainBrain.ListOfMovies();
-            listOfMovies.ItemsSource = _mainBrain.RetrieveAll();
+            listOfMoviesBox.ItemsSource = _mainBrain.RetrieveAll();
         }
 
         private void UpdateMovieList(object sender, RoutedEventArgs e)
         {
-            RetreiveMovies();
+            //RetreiveMovies();
         }
 
         private void SelectionChangedMethod(object sender, SelectionChangedEventArgs e)
         {
-            //Update details about movie
+            _mainBrain.SetSelectedMovie(listOfMoviesBox.SelectedItem);
         }
 
         private void Select(object sender, RoutedEventArgs e)
@@ -67,22 +73,23 @@ namespace WPF_Front_End
             if(txtSearch.Text == "/movies")
             {
                 //Display all movies
+                listOfMoviesBox.ItemsSource = _mainBrain.RetrieveAll();
             }
             else if(txtSearch.Text == "/love")
             {
                 //Display list of fav movies
+                listOfMoviesBox.ItemsSource = _mainBrain.RetrieveFavourites();
             }
-            else
+            else if(txtSearch.Text != string.Empty)
             {
-                listOfMovies.ItemsSource = _mainBrain.RetrieveMovie(txtSearch.Text);
-
                 //Retrieve txtSearch.Text movie from db.
+                listOfMoviesBox.ItemsSource = _mainBrain.RetrieveMovie(txtSearch.Text);  
             }
         }
 
         private void Add_Remove_Favourite(object sender, RoutedEventArgs e)
         {
-
+            _mainBrain.AddRemoveFavourite();
         }
     }
 }
