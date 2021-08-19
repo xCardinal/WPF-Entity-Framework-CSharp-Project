@@ -169,6 +169,7 @@
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
+
             <StackPanel Width="880">
                 <Image
                     Width="880"
@@ -179,6 +180,16 @@
             </StackPanel>
         </StackPanel>
         <StackPanel />
+        <TextBox
+            Width="350"
+            Margin="920,0,5,5"
+            VerticalAlignment="Bottom"
+            HorizontalContentAlignment="Center"
+            FontFamily="Freestyle Script Regular"
+            FontSize="20"
+            Foreground="#802024">
+            Made By: Sergio Francisco Moreira da Silva Pessegueiro
+        </TextBox>
         <Button
             x:Name="btnClose"
             Margin="10"
