@@ -77,11 +77,14 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
+                        <!--<Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>-->
 
                         <Label
                             Grid.Row="1"
                             Grid.Column="0"
-                            Margin="200,0,200,0"
+                            Margin="175,0,175,0"
                             HorizontalContentAlignment="Center"
                             Background="#7FCDCDCD"
                             BorderBrush="#7FCDCDCD"
@@ -104,7 +107,7 @@
                                 <Button
                                     x:Name="btnSelect"
                                     Grid.Column="1"
-                                    Width="85"
+                                    Width="95"
                                     Height="40"
                                     Margin="20"
                                     materialDesign:ButtonAssist.CornerRadius="0"
@@ -119,22 +122,37 @@
                                 <Button
                                     x:Name="btnUpdateMovieList"
                                     Grid.Column="1"
-                                    Width="85"
+                                    Width="95"
                                     Height="40"
                                     Margin="20"
                                     materialDesign:ButtonAssist.CornerRadius="0"
                                     Background="#FF323232"
                                     BorderBrush="#7FCDCDCD"
                                     BorderThickness="1"
-                                    Click="UpdateMovieList"
-                                    Content="Update"
+                                    Click="LoadMovies"
+                                    Content="Movies"
                                     Foreground="White"
                                     Style="{StaticResource MaterialDesignFlatButton}"
                                     ToolTip="Update Movie List" />
                                 <Button
+                                    x:Name="btnLoveList"
+                                    Grid.Column="1"
+                                    Width="95"
+                                    Height="40"
+                                    Margin="20"
+                                    materialDesign:ButtonAssist.CornerRadius="0"
+                                    Background="#FF323232"
+                                    BorderBrush="#7FCDCDCD"
+                                    BorderThickness="1"
+                                    Click="LoadFavouriteTitles"
+                                    Content="Preferred"
+                                    Foreground="White"
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    ToolTip="Display Favourites" />
+                                <Button
                                     x:Name="btnAddFavourite"
                                     Grid.Column="1"
-                                    Width="85"
+                                    Width="95"
                                     Height="40"
                                     Margin="20"
                                     materialDesign:ButtonAssist.CornerRadius="0"
@@ -142,10 +160,10 @@
                                     BorderBrush="#7FCDCDCD"
                                     BorderThickness="1"
                                     Click="Add_Remove_Favourite"
-                                    Content="Love"
+                                    Content="+/-"
                                     Foreground="White"
                                     Style="{StaticResource MaterialDesignFlatButton}"
-                                    ToolTip="Add to Favourites" />
+                                    ToolTip="Add/Remove Favourites" />
                             </StackPanel>
 
                         </Label>

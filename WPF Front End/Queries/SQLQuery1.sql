@@ -37,6 +37,10 @@ from Users
 select *
 from Movies
 
+Update Movies
+SET MovieName = 'Harry Potter and the Philosopher''s Stone'
+WHERE MovieId = 1
+
 
 
 

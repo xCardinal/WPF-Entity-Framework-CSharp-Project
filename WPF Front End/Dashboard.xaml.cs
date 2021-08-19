@@ -51,17 +51,6 @@ namespace WPF_Front_End
             }
 
         }
-        public void RetreiveMovies()
-        {
-            //listOfMovies.ItemsSource = _mainBrain.ListOfMovies();
-            listOfMoviesBox.ItemsSource = _mainBrain.RetrieveAll();
-        }
-
-        private void UpdateMovieList(object sender, RoutedEventArgs e)
-        {
-            //RetreiveMovies();
-        }
-
         private void SelectionChangedMethod(object sender, SelectionChangedEventArgs e)
         {
             _mainBrain.SetSelectedMovie(listOfMoviesBox.SelectedItem);
@@ -71,26 +60,48 @@ namespace WPF_Front_End
         {
             //Ok Button
 
-            if(txtSearch.Text == "/movies")
+            if (txtSearch.Text == "/movies")
             {
                 //Display all movies
-                listOfMoviesBox.ItemsSource = _mainBrain.RetrieveAll();
+                RetrieveAllTitles();
             }
-            else if(txtSearch.Text == "/love")
+            else if (txtSearch.Text == "/love")
             {
                 //Display list of fav movies
-                listOfMoviesBox.ItemsSource = _mainBrain.RetrieveFavourites;
+                LoadFavouriteTitles();
             }
-            else if(txtSearch.Text != string.Empty)
+            else if (txtSearch.Text.ToLower() == "/mischief managed") Application.Current.Shutdown();
+            else if (txtSearch.Text.ToLower() == "/exit") Application.Current.Shutdown();
+            else if (txtSearch.Text != string.Empty)
             {
                 //Retrieve txtSearch.Text movie from db.
-                listOfMoviesBox.ItemsSource = _mainBrain.RetrieveMovie(txtSearch.Text);  
+                listOfMoviesBox.ItemsSource = _mainBrain.RetrieveMovie(txtSearch.Text);
             }
         }
-
+        
         private void Add_Remove_Favourite(object sender, RoutedEventArgs e)
         {
             _mainBrain.AddRemoveFavourite();
+            if(!_mainBrain.RetrieveFavourites.Contains(_mainBrain.SelectedMovie))
+            {
+                LoadFavouriteTitles();
+            }
+        }
+        private void LoadMovies(object sender, RoutedEventArgs e)
+        {
+            RetrieveAllTitles();
+        }
+        public void LoadFavouriteTitles(object sender, RoutedEventArgs e)
+        {
+            LoadFavouriteTitles();
+        }
+        public void LoadFavouriteTitles()
+        {
+            listOfMoviesBox.ItemsSource = _mainBrain.RetrieveFavourites;
+        }
+        public void RetrieveAllTitles()
+        {
+            listOfMoviesBox.ItemsSource = _mainBrain.RetrieveAll();
         }
     }
 }

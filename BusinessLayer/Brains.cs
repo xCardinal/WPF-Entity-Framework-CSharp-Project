@@ -213,7 +213,17 @@ namespace BusinessLayer
                     {
                         //Remove from Favourites - Remove from table
                         //db.MovieFavourites.Remove((MovieFavourites)SelectedMovie.MovieFavourites);
+
+                        //retrieve the MovieFavourites gameobject that holds the SelectedMovie movie
+
+                        var query =
+                            db.MovieFavourites
+                            .Where(mf => mf.Movie == SelectedMovie).Select(m=>m).FirstOrDefault();
+
+                        db.MovieFavourites.Remove(query);
                         db.SaveChanges();
+
+
                     }
                 }
             }
