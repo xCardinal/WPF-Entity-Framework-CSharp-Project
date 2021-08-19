@@ -36,7 +36,6 @@ namespace WPF_Front_End
                 //MessageBox.Show("Login Successfully","Congrats", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.Hide();
                 Dashboard dashboard = new Dashboard();
-                //dashboard.SetUser(txtUsername.Text);
                 dashboard.ShowDialog();
             }
             else

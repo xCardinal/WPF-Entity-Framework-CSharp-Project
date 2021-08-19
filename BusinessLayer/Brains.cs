@@ -39,7 +39,10 @@ namespace BusinessLayer
                         if (query1.Password == password)
                         {
                             //OK
+                            SelectedUser = query1;
+                            StaticClass.CurrentUser = SelectedUser;
                             return true;
+                            
                         }
                         else
                         {
@@ -56,6 +59,11 @@ namespace BusinessLayer
 
                 return false;
             }
+        }
+
+        public void LoadUser()
+        {
+            SelectedUser = StaticClass.CurrentUser;
         }
 
         public void Create(
@@ -187,13 +195,22 @@ namespace BusinessLayer
 
                 if(queryOfMovies == null)
                 {
+                    MovieFavourites newMovieFavourite = new MovieFavourites();
+                    //newMovieFavourite.User = SelectedUser;
+                    //newMovieFavourite.Movie = SelectedMovie;
+
+                    SelectedMovie.MovieFavourites.Add(newMovieFavourite);
+                    SelectedUser.MovieFavourites.Add(newMovieFavourite);
+
                     //Add to Favourites -  Push into table
-                    db.MovieFavourites.Add((MovieFavourites)SelectedMovie.MovieFavourites);
+                    db.MovieFavourites.Add(newMovieFavourite);
+                    db.SaveChanges();
                 }
                 else
                 {
                     //Remove from Favourites - Remove from table
                     db.MovieFavourites.Remove((MovieFavourites)SelectedMovie.MovieFavourites);
+                    db.SaveChanges();
                 }
 
             }

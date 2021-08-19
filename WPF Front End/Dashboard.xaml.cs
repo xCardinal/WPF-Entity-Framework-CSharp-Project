@@ -25,11 +25,12 @@ namespace WPF_Front_End
         public Dashboard()
         {
             InitializeComponent();
+            SetUser();
         }
 
         public void SetUser()
         {
-            //_mainBrain.SelectedUser
+            _mainBrain.LoadUser();
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)

@@ -32,10 +32,6 @@ insert into Movies(CategoryName, MovieName)
 values('Sci-fi/Drama','The Martian')
 
 select *
-from Users u
-join MovieFavourites mf on u.UserId = mf.UserId
-
-select *
 from Users
 
 select *
