@@ -12,12 +12,23 @@
     mc:Ignorable="d">
 
     <Grid>
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="col1" />
+        </Grid.ColumnDefinitions>-->
+
+
+
         <MediaElement
             x:Name="MyMediaElement"
             Margin="0"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            LoadedBehavior="Play"
+            LoadedBehavior="Manual"
             Stretch="Fill" />
         <!--<MediaElement
             Name="mePlayer"
@@ -47,6 +58,33 @@
                 VerticalAlignment="Center">
 
             </StackPanel>-->
+        </StackPanel>
+        <StackPanel
+            Grid.Row="0"
+            Margin="5"
+            VerticalAlignment="Bottom"
+            Orientation="Horizontal">
+            <Button
+                x:Name="btnPlay"
+                Margin="5"
+                Background="#7F598392"
+                BorderBrush="#7FCDCDCD"
+                Click="btnPlay_Click"
+                Content="Play" />
+            <Button
+                x:Name="btnPause"
+                Margin="5"
+                Background="#7F598392"
+                BorderBrush="#7FCDCDCD"
+                Click="btnPause_Click"
+                Content="Pause" />
+            <Button
+                x:Name="btnStop"
+                Margin="5"
+                Background="#7F598392"
+                BorderBrush="#7FCDCDCD"
+                Click="btnStop_Click"
+                Content="Stop" />
         </StackPanel>
     </Grid>
 </Page>

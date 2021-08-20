@@ -29,8 +29,9 @@ namespace WPF_Front_End
             if (selectedMovie != null)
                 {
                 MyMediaElement.MediaFailed += MyMediaElement_MediaFailed;
-                MyMediaElement.LoadedBehavior = MediaState.Play;
+                //MyMediaElement.LoadedBehavior = MediaState.Play;
                 MyMediaElement.Source = new Uri(@selectedMovie.VideoPath);
+                MyMediaElement.Play();
                 //MyMediaElement.Source =
                 //    new Uri(@"https://drive.google.com/file/d/1gl-fQpVPpAXLhNiiLAdKv-zcvedksXtT/view?usp=sharing", UriKind.Absolute);
                 //
@@ -45,7 +46,22 @@ namespace WPF_Front_End
 
         private void CloseTrailer(object sender, RoutedEventArgs e)
         {
+            MyMediaElement.Stop();
             reference.ToggleTrailer();
+        }
+        private void btnPlay_Click(object sender, RoutedEventArgs e)
+        {
+            MyMediaElement.Play();
+        }
+
+        private void btnStop_Click(object sender, RoutedEventArgs e)
+        {
+            MyMediaElement.Stop();
+        }
+
+        private void btnPause_Click(object sender, RoutedEventArgs e)
+        {
+            MyMediaElement.Pause();
         }
     }
 }
