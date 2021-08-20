@@ -199,14 +199,17 @@
         </StackPanel>
         <StackPanel />
         <TextBox
-            Width="350"
+            Width="355"
+            Height="50"
             Margin="920,0,5,5"
             VerticalAlignment="Bottom"
             HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Bottom"
             FontFamily="Freestyle Script Regular"
             FontSize="20"
             Foreground="#802024">
-            Made By: Sergio Francisco Moreira da Silva Pessegueiro
+            Version 1.0 //
+            By: Sergio Francisco Moreira da Silva Pessegueiro
         </TextBox>
         <Button
             x:Name="btnClose"
