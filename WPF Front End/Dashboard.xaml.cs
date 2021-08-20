@@ -109,7 +109,7 @@ namespace WPF_Front_End
 
         private void TrailerMethod(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Page1(this);
+            Main.Content = new Page1(this, _mainBrain.SelectedMovie);
             ToggleTrailer();
         }
         public void ToggleTrailer()

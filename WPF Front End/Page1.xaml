@@ -37,7 +37,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
                 <TextBlock Margin="20" FontSize="40">
-                    Hello
+                    Hello Martin
                 </TextBlock>
             </StackPanel>
         </StackPanel>

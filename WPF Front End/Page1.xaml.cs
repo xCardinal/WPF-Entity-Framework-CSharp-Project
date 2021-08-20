@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Data;
 
 namespace WPF_Front_End
 {
@@ -21,7 +22,7 @@ namespace WPF_Front_End
     public partial class Page1 : Page
     {
         Dashboard reference;
-        public Page1(Dashboard instance)
+        public Page1(Dashboard instance, Movie selectedMovie)
         {
             InitializeComponent();
             reference = instance;
