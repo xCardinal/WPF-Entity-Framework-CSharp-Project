@@ -175,7 +175,7 @@
                     Width="880"
                     Height="720"
                     HorizontalAlignment="Left"
-                    Source="C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\BusinessLayer\Images\photo-1489599849927-2ee91cede3ba.jpg"
+                    Source="C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\BusinessLayer\Images\5-1.jpg"
                     Stretch="Fill" />
             </StackPanel>
         </StackPanel>
