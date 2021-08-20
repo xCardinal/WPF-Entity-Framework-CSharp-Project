@@ -191,7 +191,7 @@ namespace BusinessLayer
 
             using (var db = new SMDbContext())
             {
-                if(db.MovieFavourites.Count()>0 && SelectedMovie != null)
+                if (db.MovieFavourites.Count() >= 0 && SelectedMovie != null)
                 {
                     var queryOfMovies =
                     db.MovieFavourites.Where(fm => fm.MovieId == SelectedMovie.MovieId).FirstOrDefault();

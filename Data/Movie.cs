@@ -12,7 +12,7 @@ namespace Data
         public int MovieId { get; set; }
         public string MovieName { get; set; }
         public string CategoryName { get; set; }
-        //public string VideoPath { get; set; }
+        //public string VideoPath { get; set; } //PROPERTY
 
         //One to Many
         public virtual ICollection<MovieFavourites> MovieFavourites { get; set; }
