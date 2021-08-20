@@ -23,27 +23,15 @@
             CornerRadius="0 0 0 0"
             MouseDown="Border_MouseDown" />
         <Image
+            x:Name="BackgroundImage"
             HorizontalAlignment="Center"
-            OpacityMask="#F2000000"
+            OpacityMask="Black"
             Source="C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\BusinessLayer\Images\2063914.jpg"
             Stretch="Fill" />
-        <Button
-            x:Name="btnClose"
-            Margin="10"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            Background="#7F598392"
-            BorderBrush="#7FCDCDCD"
-            Click="btnClose_Click"
-            Foreground="#7FCDCDCD"
-            Style="{StaticResource MaterialDesignFlatButton}"
-            ToolTip="Close">
-            <materialDesign:PackIcon
-                Width="20"
-                Height="20"
-                Foreground="White"
-                Kind="Close" />
-        </Button>
+
+
+
+
         <StackPanel Margin="10" VerticalAlignment="Center">
 
             <StackPanel Background="#7F000000">
@@ -62,15 +50,20 @@
                 Margin="5,0,5,0"
                 Background="#7FD6D5D1">
 
-                <ListBox
-                    x:Name="listOfMoviesBox"
-                    Height="200"
-                    Margin="20,20,20,20"
-                    HorizontalContentAlignment="Center"
-                    Background="#FF1B1B1B"
-                    FontSize="25"
-                    Foreground="White"
-                    SelectionChanged="SelectionChangedMethod" />
+                <StackPanel>
+
+                    <ListBox
+                        x:Name="listOfMoviesBox"
+                        Height="200"
+                        Margin="20,20,20,20"
+                        HorizontalContentAlignment="Center"
+                        Background="#FF1B1B1B"
+                        FontSize="25"
+                        Foreground="White"
+                        SelectionChanged="SelectionChangedMethod" />
+                </StackPanel>
+
+
 
 
                 <StackPanel>
@@ -195,6 +188,41 @@
 
         </StackPanel>
         <StackPanel />
+        <Button
+            x:Name="btnClose"
+            Margin="10"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Background="#7F598392"
+            BorderBrush="#7FCDCDCD"
+            Click="btnClose_Click"
+            Foreground="#7FCDCDCD"
+            Style="{StaticResource MaterialDesignFlatButton}"
+            ToolTip="Close">
+            <materialDesign:PackIcon
+                Width="20"
+                Height="20"
+                Foreground="White"
+                Kind="Close" />
+        </Button>
+        <Image
+            x:Name="DimImage"
+            Margin="0"
+            VerticalAlignment="Center"
+            OpacityMask="#BF000000"
+            Source="C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\BusinessLayer\Images\wp2832050.png"
+            Stretch="Fill"
+            Visibility="Hidden" />
+        <Frame
+            x:Name="Main"
+            Width="360 "
+            Height="240"
+            Margin="20"
+            Background="Black"
+            NavigationUIVisibility="Hidden"
+            Visibility="Hidden" />
+
+
 
 
         <!--<StackPanel>

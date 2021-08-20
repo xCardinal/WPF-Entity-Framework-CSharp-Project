@@ -22,10 +22,13 @@ namespace WPF_Front_End
     public partial class Dashboard : Window
     {
         private Brains _mainBrain = new Brains();
+
+        public Dashboard instance;
         public Dashboard()
         {
             InitializeComponent();
             SetUser();
+            instance = this;
         }
 
         public void SetUser()
@@ -106,7 +109,16 @@ namespace WPF_Front_End
 
         private void TrailerMethod(object sender, RoutedEventArgs e)
         {
-            //Main.Content = new Page1();
+            Main.Content = new Page1(this);
+            ToggleTrailer();
+        }
+        public void ToggleTrailer()
+        {
+            //Dim the screen 
+            DimImage.Visibility = DimImage.Visibility == Visibility.Hidden ? Visibility.Visible : Visibility.Hidden;
+            //Show Page
+            Main.Visibility = Main.Visibility == Visibility.Hidden ? Visibility.Visible : Visibility.Hidden;
+
         }
     }
 }

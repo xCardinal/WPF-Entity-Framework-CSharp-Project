@@ -20,9 +20,16 @@ namespace WPF_Front_End
     /// </summary>
     public partial class Page1 : Page
     {
-        public Page1()
+        Dashboard reference;
+        public Page1(Dashboard instance)
         {
             InitializeComponent();
+            reference = instance;
+        }
+
+        private void CloseTrailer(object sender, RoutedEventArgs e)
+        {
+            reference.ToggleTrailer();
         }
     }
 }
