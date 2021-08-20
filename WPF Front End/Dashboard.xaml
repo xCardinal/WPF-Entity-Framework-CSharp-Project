@@ -25,7 +25,7 @@
         <Image
             x:Name="BackgroundImage"
             HorizontalAlignment="Center"
-            OpacityMask="Black"
+            OpacityMask="White"
             Source="C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\BusinessLayer\Images\2063914.jpg"
             Stretch="Fill" />
 
@@ -62,9 +62,6 @@
                         Foreground="White"
                         SelectionChanged="SelectionChangedMethod" />
                 </StackPanel>
-
-
-
 
                 <StackPanel>
                     <Grid>
@@ -215,15 +212,12 @@
             Visibility="Hidden" />
         <Frame
             x:Name="Main"
-            Width="360 "
-            Height="240"
-            Margin="20"
+            Width="1280"
+            Height="720"
+            Margin="0"
             Background="Black"
             NavigationUIVisibility="Hidden"
             Visibility="Hidden" />
-
-
-
 
         <!--<StackPanel>
             <TextBlock Text="Hello" />

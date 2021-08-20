@@ -31,6 +31,9 @@ namespace Data.Migrations
                     b.Property<string>("MovieName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("VideoPath")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("MovieId");
 
                     b.ToTable("Movies");

@@ -7,13 +7,22 @@
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Page1"
-    d:DesignHeight="240"
-    d:DesignWidth="360"
-    Background="{DynamicResource MaterialDesignPaper}"
-    FontFamily="{DynamicResource MaterialDesignFont}"
+    d:DesignHeight="720"
+    d:DesignWidth="1280"
     mc:Ignorable="d">
 
     <Grid>
+        <MediaElement
+            x:Name="MyMediaElement"
+            Margin="0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            LoadedBehavior="Play"
+            Stretch="Fill" />
+        <!--<MediaElement
+            Name="mePlayer"
+            LoadedBehavior="Manual"
+            Source="https://youtu.be/GNWLILeztaI" />-->
         <StackPanel>
             <Button
                 x:Name="btnClose"
@@ -24,7 +33,6 @@
                 BorderBrush="#7FCDCDCD"
                 Click="CloseTrailer"
                 Foreground="#7FCDCDCD"
-                Style="{StaticResource MaterialDesignFlatButton}"
                 ToolTip="Close">
                 <materialDesign:PackIcon
                     Width="20"
@@ -32,14 +40,13 @@
                     Foreground="White"
                     Kind="Close" />
             </Button>
-            <StackPanel
-                Margin="20"
+
+            <!--<StackPanel
+                Margin="0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
-                <TextBlock Margin="20" FontSize="40">
-                    Hello Martin
-                </TextBlock>
-            </StackPanel>
+
+            </StackPanel>-->
         </StackPanel>
     </Grid>
 </Page>

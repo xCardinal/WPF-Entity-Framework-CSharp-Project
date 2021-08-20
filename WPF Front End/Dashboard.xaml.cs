@@ -1,7 +1,9 @@
 ﻿using BusinessLayer;
 using Data;
+using MaterialDesignColors;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace WPF_Front_End
 {
@@ -109,6 +112,7 @@ namespace WPF_Front_End
 
         private void TrailerMethod(object sender, RoutedEventArgs e)
         {
+            if (_mainBrain.SelectedMovie == null) return;
             Main.Content = new Page1(this, _mainBrain.SelectedMovie);
             ToggleTrailer();
         }
@@ -120,5 +124,8 @@ namespace WPF_Front_End
             Main.Visibility = Main.Visibility == Visibility.Hidden ? Visibility.Visible : Visibility.Hidden;
 
         }
+
+
+
     }
 }

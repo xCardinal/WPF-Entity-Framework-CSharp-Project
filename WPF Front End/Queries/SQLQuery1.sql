@@ -38,9 +38,34 @@ select *
 from Movies
 
 Update Movies
-SET MovieName = 'Harry Potter and the Philosopher''s Stone'
-WHERE MovieId = 1
+SET VideoPath = 'C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\WPF Front End\Trailers\Insterstellar-Trailer.mp4'
+WHERE MovieId = 9
 
+Update Movies
+SET VideoPath = 'C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\WPF Front End\Trailers\The Martian Teaser Trailer [HD] 20th Century FOX.mp4'
+where MovieId = 10
 
-
-
+Update Movies
+SET VideoPath = 'C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\WPF Front End\Trailers\Harry Potter and the Sorcerer''s Stone (2001) Official Trailer - Daniel Radcliffe Movie HD.mp4'
+where MovieId = 1
+Update Movies
+SET VideoPath = 'C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\WPF Front End\Trailers\HARRY POTTER AND THE CHAMBER OF SECRETS Trailer (2002).mp4'
+where MovieId = 2
+Update Movies
+SET VideoPath = 'C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\WPF Front End\Trailers\Harry Potter and the Prisoner of Azkaban Official Trailer #1 - (2004) HD.mp4'
+where MovieId = 3
+Update Movies
+SET VideoPath = 'C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\WPF Front End\Trailers\Harry Potter and the Goblet of Fire (2005) Official Trailer - Daniel Radcliffe Movie HD.mp4'
+where MovieId = 4
+Update Movies
+SET VideoPath = 'C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\WPF Front End\Trailers\Harry Potter and the Order of the Phoenix (2007) Official Trailer - Daniel Radcliffe Movie HD.mp4'
+where MovieId = 5
+Update Movies
+SET VideoPath = 'C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\WPF Front End\Trailers\Harry Potter and the Half-Blood Prince Official Trailer.mp4'
+where MovieId = 6
+Update Movies
+SET VideoPath = 'C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\WPF Front End\Trailers\Harry Potter and the Deathly Hallows Part 1 Official Trailer #1 - (2010) HD.mp4'
+where MovieId = 7
+Update Movies
+SET VideoPath = 'C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\WPF Front End\Trailers\videoplayback.mp4'
+where MovieId = 8
