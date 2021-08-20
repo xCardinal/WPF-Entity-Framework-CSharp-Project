@@ -194,7 +194,7 @@ namespace BusinessLayer
                 if (db.MovieFavourites.Count() >= 0 && SelectedMovie != null)
                 {
                     var queryOfMovies =
-                    db.MovieFavourites.Where(fm => fm.MovieId == SelectedMovie.MovieId).FirstOrDefault();
+                    db.MovieFavourites.Where(fm => fm.MovieId == SelectedMovie.MovieId && fm.UserId == SelectedUser.UserId).FirstOrDefault();
 
                     if (queryOfMovies == null)
                     {

@@ -48,7 +48,7 @@
             <StackPanel
                 Height="355"
                 Margin="5,0,5,0"
-                Background="#7FD6D5D1">
+                Background="#7F323232">
 
                 <StackPanel>
 
