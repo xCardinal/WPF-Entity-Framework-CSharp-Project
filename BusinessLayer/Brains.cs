@@ -85,13 +85,15 @@ namespace BusinessLayer
        string newUserName,
        string newPassword)
         {
-            var newUser = new User() { UserName = newUserName, Password = newPassword };
+            
             using (var db = new SMDbContext())
             {
                 var users = db.Users.ToList();
                 var user = db.Users.FirstOrDefault(c => c.UserName == newUserName);
-                if (user == null)
+                if (user == null && newUserName != null && newPassword != null)
                 {
+                    var newUser = new User() { UserName = newUserName, Password = newPassword };
+
                     db.Users.Add(newUser);
                     newUser.Status = 1;
                     newUser.Type = "user";

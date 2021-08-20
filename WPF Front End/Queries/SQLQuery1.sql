@@ -71,4 +71,4 @@ SET VideoPath = 'C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework
 where MovieId = 8
 
 DELETE FROM Users
-WHERE UserId = 3;
+WHERE UserId = 6;

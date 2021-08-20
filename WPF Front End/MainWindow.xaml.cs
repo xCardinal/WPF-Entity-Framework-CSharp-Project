@@ -100,10 +100,15 @@ namespace WPF_Front_End
 
         private void BtwRegister_Click(object sender, RoutedEventArgs e)
         {
-            if (_mainBrain.Create(txtNewUsername.Text, txtNewPassword.Password))
+            if (txtNewUsername.Text == string.Empty || txtNewPassword.Password == string.Empty)
+            {
+                MessageBox.Show("Fields can not be empty.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (_mainBrain.Create(txtNewUsername.Text, txtNewPassword.Password))
             {
                 MessageBox.Show("Registration Complete", "Congrats", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+            
             else
             {
                 MessageBox.Show("Username is taken.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
