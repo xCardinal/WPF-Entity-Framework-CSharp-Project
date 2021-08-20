@@ -84,7 +84,7 @@
                         <Label
                             Grid.Row="1"
                             Grid.Column="0"
-                            Margin="175,0,175,0"
+                            Margin="100,0,100,0"
                             HorizontalContentAlignment="Center"
                             Background="#7FCDCDCD"
                             BorderBrush="#7FCDCDCD"
@@ -134,8 +134,9 @@
                                     Foreground="White"
                                     Style="{StaticResource MaterialDesignFlatButton}"
                                     ToolTip="Update Movie List" />
+
                                 <Button
-                                    x:Name="btnLoveList"
+                                    x:Name="btnTrailer"
                                     Grid.Column="1"
                                     Width="95"
                                     Height="40"
@@ -144,11 +145,27 @@
                                     Background="#FF323232"
                                     BorderBrush="#7FCDCDCD"
                                     BorderThickness="1"
+                                    Click="TrailerMethod"
+                                    Content="Trailer"
+                                    Foreground="White"
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    ToolTip="Watch Trailer" />
+                                <Button
+                                    x:Name="btnLoveList"
+                                    Grid.Column="1"
+                                    Width="95"
+                                    Height="40"
+                                    Margin="20"
+                                    materialDesign:ButtonAssist.CornerRadius="0"
+                                    Background="#FF935858"
+                                    BorderBrush="#7FCDCDCD"
+                                    BorderThickness="1"
                                     Click="LoadFavouriteTitles"
                                     Content="Preferred"
                                     Foreground="White"
                                     Style="{StaticResource MaterialDesignFlatButton}"
                                     ToolTip="Display Favourites" />
+
                                 <Button
                                     x:Name="btnAddFavourite"
                                     Grid.Column="1"
@@ -164,6 +181,7 @@
                                     Foreground="White"
                                     Style="{StaticResource MaterialDesignFlatButton}"
                                     ToolTip="Add/Remove Favourites" />
+
                             </StackPanel>
 
                         </Label>
@@ -176,6 +194,15 @@
 
         </StackPanel>
         <StackPanel />
+
+
+        <!--<StackPanel>
+            <TextBlock Text="Hello" />
+        </StackPanel>
+        <Frame
+            x:Name="Main"
+            Margin="100"
+            Background="Black" />-->
 
     </Grid>
 </Window>

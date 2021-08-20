@@ -103,5 +103,10 @@ namespace WPF_Front_End
         {
             listOfMoviesBox.ItemsSource = _mainBrain.RetrieveAll();
         }
+
+        private void TrailerMethod(object sender, RoutedEventArgs e)
+        {
+            //Main.Content = new Page1();
+        }
     }
 }
