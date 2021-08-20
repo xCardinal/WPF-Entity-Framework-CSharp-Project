@@ -69,3 +69,6 @@ where MovieId = 7
 Update Movies
 SET VideoPath = 'C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\WPF Front End\Trailers\videoplayback.mp4'
 where MovieId = 8
+
+DELETE FROM Users
+WHERE UserId = 3;

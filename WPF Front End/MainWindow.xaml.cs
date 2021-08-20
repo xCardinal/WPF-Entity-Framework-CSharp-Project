@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using BusinessLayer;
 using System.Data.SqlClient;
 using System.Configuration;
+using Microsoft.Win32;
+using System.Diagnostics;
 
 namespace WPF_Front_End
 {
@@ -56,7 +58,41 @@ namespace WPF_Front_End
             }
             
         }
+        private void LinkedIn(object sender, RoutedEventArgs e)
+        {
+            string linkedInPath = "https://www.linkedin.com/in/sergio-pessegueiro/";
+            //System.Diagnostics.Process.Start("iexplorer.exe", linkedInPath);
 
+
+            //string defaultBrowserPath = GetDefaultBrowserPath();
+
+            //try
+
+            //{
+
+            //    // launch default browser
+
+            //    Process.Start(defaultBrowserPath, linkedInPath);
+
+            //}
+
+            //catch (Exception exp)
+
+            //{
+
+            //    MessageBox.Show(exp.Message);
+
+            //}
+
+            Process p = new Process();
+
+            p.StartInfo.FileName = GetDefaultBrowserPath();
+
+            p.StartInfo.Arguments = linkedInPath;
+
+            p.Start();
+
+        }
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
@@ -72,6 +108,24 @@ namespace WPF_Front_End
             {
                 MessageBox.Show("Username is taken.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+
+
+        private static string GetDefaultBrowserPath()
+
+        {
+
+            string key = @"htmlfile\shell\open\command";
+
+            RegistryKey registryKey =
+
+            Registry.ClassesRoot.OpenSubKey(key, false);
+
+            // get default browser path
+
+            return ((string)registryKey.GetValue(null, null)).Split('"')[1];
+
         }
     }
 }
