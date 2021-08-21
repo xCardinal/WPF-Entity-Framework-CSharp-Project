@@ -124,7 +124,7 @@
                                     Content="Movies"
                                     Foreground="White"
                                     Style="{StaticResource MaterialDesignFlatButton}"
-                                    ToolTip="Update Movie List" />
+                                    ToolTip="Display all" />
 
                                 <Button
                                     x:Name="btnTrailer"
