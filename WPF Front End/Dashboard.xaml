@@ -192,7 +192,7 @@
             VerticalAlignment="Top"
             Background="#7F598392"
             BorderBrush="#7FCDCDCD"
-            Click="btnClose_Click"
+            Click="CloseWindow"
             Foreground="#7FCDCDCD"
             Style="{StaticResource MaterialDesignFlatButton}"
             ToolTip="Close">
@@ -201,6 +201,23 @@
                 Height="20"
                 Foreground="White"
                 Kind="Close" />
+        </Button>
+        <Button
+            x:Name="btnLogOut"
+            Margin="0,10,70,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Background="#7F598392"
+            BorderBrush="#7FCDCDCD"
+            Click="LogOut"
+            Foreground="#7FCDCDCD"
+            Style="{StaticResource MaterialDesignFlatButton}"
+            ToolTip="LogOut">
+            <materialDesign:PackIcon
+                Width="20"
+                Height="20"
+                Foreground="White"
+                Kind="LogoutVariant" />
         </Button>
         <Image
             x:Name="DimImage"

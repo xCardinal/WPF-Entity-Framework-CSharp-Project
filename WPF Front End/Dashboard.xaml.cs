@@ -39,11 +39,9 @@ namespace WPF_Front_End
             _mainBrain.LoadUser();
         }
 
-        private void btnClose_Click(object sender, RoutedEventArgs e)
+        private void CloseWindow(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.ShowDialog();
+            Application.Current.Shutdown();
         }
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -125,7 +123,11 @@ namespace WPF_Front_End
 
         }
 
-
-
+        private void LogOut(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.ShowDialog();
+        }
     }
 }

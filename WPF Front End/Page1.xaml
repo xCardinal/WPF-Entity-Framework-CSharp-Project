@@ -70,14 +70,14 @@
                 Background="#7F598392"
                 BorderBrush="#7FCDCDCD"
                 Click="btnPlay_Click"
-                Content="Play" />
-            <Button
+                Content="Play/Pause" />
+            <!--<Button
                 x:Name="btnPause"
                 Margin="5"
                 Background="#7F598392"
                 BorderBrush="#7FCDCDCD"
                 Click="btnPause_Click"
-                Content="Pause" />
+                Content="Pause" />-->
             <Button
                 x:Name="btnStop"
                 Margin="5"

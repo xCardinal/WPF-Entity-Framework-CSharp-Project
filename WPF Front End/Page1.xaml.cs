@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -49,9 +50,25 @@ namespace WPF_Front_End
             MyMediaElement.Stop();
             reference.ToggleTrailer();
         }
+        private MediaState GetMediaState(MediaElement myMedia)
+        {
+            FieldInfo hlp = typeof(MediaElement).GetField("_helper", BindingFlags.NonPublic | BindingFlags.Instance);
+            object helperObject = hlp.GetValue(myMedia);
+            FieldInfo stateField = helperObject.GetType().GetField("_currentState", BindingFlags.NonPublic | BindingFlags.Instance);
+            MediaState state = (MediaState)stateField.GetValue(helperObject);
+            return state;
+        }
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
-            MyMediaElement.Play();
+            if(GetMediaState(MyMediaElement)==MediaState.Play)
+            {
+                MyMediaElement.Pause();
+            }
+            else
+            {
+                MyMediaElement.Play();
+            }
+            
         }
 
         private void btnStop_Click(object sender, RoutedEventArgs e)
