@@ -164,7 +164,7 @@
                                 Content="Register"
                                 Foreground="White"
                                 Style="{StaticResource MaterialDesignRaisedButton}"
-                                ToolTip="Login" />
+                                ToolTip="Register" />
                         </StackPanel>
                     </StackPanel>
                     <Button
