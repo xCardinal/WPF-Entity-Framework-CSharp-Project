@@ -27,7 +27,7 @@ namespace WPF_Front_End
         {
             InitializeComponent();
             reference = instance;
-            if (selectedMovie != null)
+            if (selectedMovie != null && selectedMovie.VideoPath != null)
                 {
                 MyMediaElement.MediaFailed += MyMediaElement_MediaFailed;
                 //MyMediaElement.LoadedBehavior = MediaState.Play;

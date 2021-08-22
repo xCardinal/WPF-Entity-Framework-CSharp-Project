@@ -111,6 +111,11 @@ namespace WPF_Front_End
         private void TrailerMethod(object sender, RoutedEventArgs e)
         {
             if (_mainBrain.SelectedMovie == null) return;
+            if(_mainBrain.SelectedMovie.VideoPath == null)
+            {
+                MessageBox.Show("Trailer not found.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             Main.Content = new Page1(this, _mainBrain.SelectedMovie);
             ToggleTrailer();
         }
