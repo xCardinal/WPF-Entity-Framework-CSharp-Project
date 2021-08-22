@@ -22,7 +22,7 @@ User friendly, Mobile Database, app where the user can keep track of favourited 
 
 **Kanban Board** at the start:
 
-![image-20210822174319673](C:\Users\iFran\AppData\Roaming\Typora\typora-user-images\image-20210822174319673.png)
+![img](https://i.imgur.com/TTLERvE.png)
 
 **Sprint Review:** 
 
@@ -34,7 +34,7 @@ User friendly, Mobile Database, app where the user can keep track of favourited 
 
 **Kanban Board** at the end:
 
-![image-20210822174428896](C:\Users\iFran\AppData\Roaming\Typora\typora-user-images\image-20210822174428896.png)
+![img](https://i.imgur.com/NU0b8kF.png)
 
 
 ### Sprint 2
@@ -43,7 +43,7 @@ User friendly, Mobile Database, app where the user can keep track of favourited 
 
 **Kanban Board** at the start:
 
-![image-20210822174537038](C:\Users\iFran\AppData\Roaming\Typora\typora-user-images\image-20210822174537038.png)
+![img](https://i.imgur.com/HLhybRK.png)
 
 **Sprint Review:** 
 
@@ -56,15 +56,15 @@ User friendly, Mobile Database, app where the user can keep track of favourited 
 
 **Kanban Board** at the end:
 
-![image-20210822174610137](C:\Users\iFran\AppData\Roaming\Typora\typora-user-images\image-20210822174610137.png)
+![img](https://i.imgur.com/UGethOi.png)
 
 ### Sprint 3
 
-**Sprint Goal:** Start the 1st Epic - Implement the ability to browse the database.
+**Sprint Goal:** Start the 2nd Epic - Implement the ability to browse the database.
 
 **Kanban Board** at the start:
 
-![image-20210822174638320](C:\Users\iFran\AppData\Roaming\Typora\typora-user-images\image-20210822174638320.png)
+![img](https://i.imgur.com/RdkrOYx.png)
 
 **Sprint Review:** 
 
@@ -75,7 +75,7 @@ User friendly, Mobile Database, app where the user can keep track of favourited 
 
 **Kanban Board** at the end:
 
-![image-20210822174919674](C:\Users\iFran\AppData\Roaming\Typora\typora-user-images\image-20210822174919674.png)
+![img](https://i.imgur.com/SIP5UUO.png)
 
 ### Sprint 4
 
@@ -83,7 +83,7 @@ User friendly, Mobile Database, app where the user can keep track of favourited 
 
 **Kanban Board** at the start:
 
-![](C:\Users\iFran\AppData\Roaming\Typora\typora-user-images\image-20210822174754884.png)
+![img](https://i.imgur.com/4dTzdo7.png)
 
 **Sprint Review:** 
 
@@ -97,7 +97,7 @@ Fixed a bug where an user favouring a movie would unfavourite the same movie in 
 
 **Kanban Board** at the end:
 
-![image-20210822175057231](C:\Users\iFran\AppData\Roaming\Typora\typora-user-images\image-20210822175057231.png)
+![img](https://i.imgur.com/mijgWuo.png)
 
 
 ### Sprint 5
@@ -106,7 +106,7 @@ Fixed a bug where an user favouring a movie would unfavourite the same movie in 
 
 **Kanban Board** at the start:
 
-![image-20210822175121309](C:\Users\iFran\AppData\Roaming\Typora\typora-user-images\image-20210822175121309.png)
+![img](https://i.imgur.com/7olBNHL.png)
 
 **Sprint Review:** 
 
@@ -118,7 +118,7 @@ Fixed a bug where an user favouring a movie would unfavourite the same movie in 
 
 **Kanban Board** at the end:
 
-![image-20210822175139042](C:\Users\iFran\AppData\Roaming\Typora\typora-user-images\image-20210822175139042.png)
+![img](https://i.imgur.com/gEgtBXU.png)
 
 
 
