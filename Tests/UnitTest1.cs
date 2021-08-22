@@ -7,11 +7,11 @@ namespace Tests
 {
     public class Tests
     {
-        Brains _user;
+        Brains _brains;
         [SetUp]
         public void Setup()
         {
-            _user = new Brains();
+            _brains = new Brains();
 
             using (var db = new SMDbContext())
             {
@@ -22,6 +22,18 @@ namespace Tests
 
                 db.Users.RemoveRange(selectedCustomers);
                 db.SaveChanges();
+                
+                ////////////////////////////
+
+                var newMovie = new Movie()
+                {
+                    MovieName = "Me Before You",
+                    CategoryName = "Romance/Drama"
+                };
+
+                db.Movies.Add(newMovie);
+                db.SaveChanges();
+
             }
         }
 
@@ -32,7 +44,7 @@ namespace Tests
             {
                 var numberOfUsers = db.Users.Count();
 
-                _user.Create("Sergio Pessegueiro", "spYagami", "HelloGuys",1,"admin");
+                _brains.Create("Sergio Pessegueiro", "spYagami", "HelloGuys",1,"admin");
 
                 var numberOfUsersAfter = db.Users.Count();
 
@@ -45,8 +57,8 @@ namespace Tests
         {
             using (var db = new SMDbContext())
             {
-                _user.Create("Sergio Pessegueiro", "spYagami", "HelloGuys", 1, "user");
-                _user.Update("Sergio Pessegueiro", "spYagami", "HelloGuys", 1, "admin");
+                _brains.Create("Sergio Pessegueiro", "spYagami", "HelloGuys", 1, "user");
+                _brains.Update("Sergio Pessegueiro", "spYagami", "HelloGuys", 1, "admin");
 
                 User updatedCustomer =
                     db.Users
@@ -80,9 +92,34 @@ namespace Tests
                     .FirstOrDefault();
 
                 var numberOfCustomersBefore = db.Users.ToList().Count();
-                _user.Delete(selectUser);
+                _brains.Delete(selectUser);
                 var numberOfCustomersAfter = db.Users.ToList().Count();
                 Assert.That(numberOfCustomersBefore - 1, Is.EqualTo(numberOfCustomersAfter));
+            }
+        }
+
+        [Test]
+        public void GivenTheCorrectPathTheMovieTrailerIsAdded()
+        {
+            using (var db = new SMDbContext())
+            {
+
+                //var selectedMovie =
+                //    from m in db.Movies
+                //    where m.MovieName == "Me Before You"
+                //    select new
+                //    {
+                //        m.MovieId, m.MovieName
+                //    }
+                //    ;
+
+                var selecteMovie = db.Movies
+                    .FirstOrDefault(m => m.MovieName == "Me Before You");
+
+                //Update the path HERE
+                _brains.UpdateMovie(selecteMovie.MovieId, "Me Before You", "Romance/Drama", "C:\\Users\\iFran\\Desktop\\General\\Sparta - Work\\WPF - Entity - Framework - CSharp - Project\\WPF Front End\\Trailers\\Me Before You Official Trailer #1 (2016) - Emilia Clarke, Sam Claflin Movie HD.mp4");
+
+                db.SaveChanges();
             }
         }
 
@@ -98,6 +135,14 @@ namespace Tests
 
                 db.Users.RemoveRange(selectedUser);
                 db.SaveChanges();
+
+                ///////////////////
+                ///
+
+                var selecteMovie = db.Movies
+                    .FirstOrDefault(m => m.MovieName == "Me Before You");
+
+                db.Movies.Remove(selecteMovie);
             }
         }
     }

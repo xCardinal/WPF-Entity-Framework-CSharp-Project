@@ -17,8 +17,4 @@
     <PackageReference Include="RestSharp" Version="106.12.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Trailers\" />
-  </ItemGroup>
-
 </Project>

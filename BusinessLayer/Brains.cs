@@ -154,6 +154,69 @@ namespace BusinessLayer
             return true;
         }
 
+        public bool AddMovie(string newMovieName, string newMovieCategory, string path)
+        {
+            using (var db = new SMDbContext())
+            {
+                //var movies = db.Movies.ToList();
+                var movie =
+                    db.Movies.FirstOrDefault(m => m.MovieName == newMovieName);
+
+                if(movie == null && newMovieName != string.Empty)
+                {
+                    var newMovie = new Movie()
+                    {
+                        MovieName = newMovieName,
+                        VideoPath = path,
+                        CategoryName = newMovieCategory
+                    };
+
+                    db.Movies.Add(newMovie);
+                    db.SaveChanges();
+
+                    return true;
+                }
+            }
+            return false;
+        }
+        public bool DeleteMovie(int movieID)
+        {
+            using(var db = new SMDbContext())
+            {
+                var selectedMovie = db.Movies.FirstOrDefault(m => m.MovieId == movieID);
+                if ( selectedMovie != null)
+                {
+                    db.Movies.Remove(SelectedMovie);
+                    db.SaveChanges();
+
+                    return true;
+                }
+                
+            }
+            return false;
+        }
+
+        public bool UpdateMovie(int movieId, string newMovieName, string newCategory, string trailerPath)
+        {
+            using(var db = new SMDbContext())
+            {
+                var query1 =
+                    db.Movies.FirstOrDefault(m => m.MovieId == movieId);
+
+                if(query1 != null)
+                {
+                    query1.MovieName = newMovieName;
+                    query1.CategoryName = newCategory;
+                    query1.VideoPath = trailerPath;
+
+                    db.SaveChanges();
+                    return true;
+                }
+                
+            }
+
+            return false;
+        }
 
         public List<Tuple<string, string>> ListOfMovies()
         {
