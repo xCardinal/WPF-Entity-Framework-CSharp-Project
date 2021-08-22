@@ -72,3 +72,7 @@ where MovieId = 8
 
 DELETE FROM Users
 WHERE UserId = 6;
+
+Update Movies
+SET VideoPath = 'C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\WPF Front End\Trailers\Me Before You Official Trailer #1 (2016) - Emilia Clarke, Sam Claflin Movie HD.mp4'
+where MovieId = 19

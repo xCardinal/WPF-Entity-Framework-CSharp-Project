@@ -28,7 +28,8 @@ namespace Tests
                 var newMovie = new Movie()
                 {
                     MovieName = "Me Before You",
-                    CategoryName = "Romance/Drama"
+                    CategoryName = "Romance/Drama",
+                    VideoPath= "C:\\Users\\iFran\\Desktop\\General\\Sparta-Work\\WPF-Entity-Framework-CSharp-Project\\WPF Front End\\Trailers\\Me Before You Official Trailer #1 (2016) - Emilia Clarke, Sam Claflin Movie HD.mp4"
                 };
 
                 db.Movies.Add(newMovie);
@@ -122,6 +123,60 @@ namespace Tests
                 db.SaveChanges();
             }
         }
+        [Test]
+        public void WhenANewMovieIsAdded_TheNumberOfMovioesIncreasesBy1()
+        {
+            using (var db = new SMDbContext())
+            {
+                int numberOfMovies = db.Movies.Count();
+
+                //Movie newMovie = new() 
+                //{ 
+                //    MovieName = "Black Widow",
+                //    CategoryName = "Action/Adventure",
+                //    VideoPath = null 
+                //};
+
+                if(_brains.AddMovie("Black Widow", "Action/Adventure", null))
+                {
+                    var query1 =
+                    db.Movies.FirstOrDefault(m => m.MovieName == "Black Widow");
+
+                    if (query1 != null)
+                    {
+                        int numberOfMoviesAfter = db.Movies.Count();
+
+                        Assert.That(numberOfMovies + 1, Is.EqualTo(numberOfMoviesAfter));
+
+                        _brains.DeleteMovie(query1.MovieId);
+                    }
+                }
+            }
+        }
+        [Test]
+        public void WhenAMovieIsRemoved_TheNumberOfMoviesDecreasesBy1()
+        {
+            using (var db = new SMDbContext())
+            {
+
+                if (_brains.AddMovie("Black Widow", "Action/Adventure", null))
+                {
+                    int numberOfMovies = db.Movies.Count();
+
+                    var query1 =
+                    db.Movies.FirstOrDefault(m => m.MovieName == "Black Widow");
+
+                    if (query1 != null && _brains.DeleteMovie(query1.MovieId))
+                    {
+                        int numberOfMoviesAfter = db.Movies.Count();
+
+                        Assert.That(numberOfMovies - 1, Is.EqualTo(numberOfMoviesAfter));
+
+                    }
+
+                }
+            }
+        }
 
         [TearDown]
         public void TearDown()
@@ -143,6 +198,7 @@ namespace Tests
                     .FirstOrDefault(m => m.MovieName == "Me Before You");
 
                 db.Movies.Remove(selecteMovie);
+                db.SaveChanges();
             }
         }
     }
