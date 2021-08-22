@@ -124,7 +124,7 @@ Fixed a bug where an user favouring a movie would unfavourite the same movie in 
 
 #### Class Diagram
 
-![image-20210822175229697](C:\Users\iFran\AppData\Roaming\Typora\typora-user-images\image-20210822175229697.png)
+![img](https://i.imgur.com/jUsoaEr.png)
 
 #### Overall Project Retrospective
 
@@ -136,3 +136,6 @@ Nevertheless, I have learnt how to build an application, however simple, with th
 
 [^fn1]: Free and open-source graphical subsystem originally developed by  Microsoft for rendering user interfaces in Windows-based applications. 
 
+
+
+By: Sergio Pessegueiro
