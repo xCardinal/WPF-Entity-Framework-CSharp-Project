@@ -6,11 +6,24 @@ using System.Threading.Tasks;
 using Data;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
+using Data.Services;
 
 namespace BusinessLayer
 {
     public class Brains
     {
+        private ICustomerService _service;
+        public Brains()
+        {
+            _service = new CustomerService();
+        }
+
+        public Brains(ICustomerService service)
+        {
+            //coalesce expression
+            _service = service ?? throw new ArgumentException("ICustomerService object cannot be null.");
+        }
+
         public User SelectedUser { get; set; }
         public Movie SelectedMovie { get; set; }
 
@@ -25,41 +38,38 @@ namespace BusinessLayer
 
         public bool Login(string user, string password)
         {
-            using (var db = new SMDbContext())
+            var listOfUsers =
+                    _service.UsersList;
+
+            var query1 =
+                _service.UsersList.FirstOrDefault(u => u.UserName.ToLower() == user);
+
+            if (query1 != null)
             {
-                var listOfUsers =
-                    db.Users.ToList();
-
-                var query1 =
-                    db.Users.FirstOrDefault(u => u.UserName.ToLower() == user);
-
-                if(query1 != null)
+                if (query1.Status != 0)
                 {
-                    if (query1.Status != 0)
+                    if (query1.Password == password)
                     {
-                        if (query1.Password == password)
-                        {
-                            //OK
-                            SelectedUser = query1;
-                            StaticClass.CurrentUser = SelectedUser;
-                            return true;
-                            
-                        }
-                        else
-                        {
-                            //FAIL - password is wrong 
-                            return false;
-                        }
+                        //OK
+                        SelectedUser = query1;
+                        StaticClass.CurrentUser = SelectedUser;
+                        return true;
+
                     }
                     else
                     {
-                        //FAIL - Account status is 0
+                        //FAIL - password is wrong 
                         return false;
                     }
                 }
-
-                return false;
+                else
+                {
+                    //FAIL - Account status is 0
+                    return false;
+                }
             }
+
+            return false;
         }
 
         public void LoadUser()
@@ -156,145 +166,125 @@ namespace BusinessLayer
 
         public bool AddMovie(string newMovieName, string newMovieCategory, string path)
         {
-            using (var db = new SMDbContext())
+            var movie =
+                    _service.AllMoviesList.FirstOrDefault(m => m.MovieName == newMovieName);
+
+            if (movie == null && newMovieName != string.Empty)
             {
-                //var movies = db.Movies.ToList();
-                var movie =
-                    db.Movies.FirstOrDefault(m => m.MovieName == newMovieName);
-
-                if(movie == null && newMovieName != string.Empty)
+                var newMovie = new Movie()
                 {
-                    var newMovie = new Movie()
-                    {
-                        MovieName = newMovieName,
-                        VideoPath = path,
-                        CategoryName = newMovieCategory
-                    };
+                    MovieName = newMovieName,
+                    VideoPath = path,
+                    CategoryName = newMovieCategory
+                };
 
-                    db.Movies.Add(newMovie);
-                    db.SaveChanges();
+                _service.AddMovieToDatabase(newMovie);
 
-                    return true;
-                }
+                return true;
             }
             return false;
         }
         public bool DeleteMovie(int movieID)
         {
-            using(var db = new SMDbContext())
+            var selectedMovie = _service.AllMoviesList.FirstOrDefault(m => m.MovieId == movieID);
+            
+            if (selectedMovie != null)
             {
-                var selectedMovie = db.Movies.FirstOrDefault(m => m.MovieId == movieID);
-                if ( selectedMovie != null)
-                {
-                    db.Movies.Remove(SelectedMovie);
-                    db.SaveChanges();
+                _service.RemoveMovieFromDatabase(selectedMovie);
 
-                    return true;
-                }
-                
+                return true;
             }
+
             return false;
         }
 
         public bool UpdateMovie(int movieId, string newMovieName, string newCategory, string trailerPath)
         {
-            using(var db = new SMDbContext())
+            #region Old Method (slow)
+            //using(var db = new SMDbContext())
+            //{
+            //    var query1 =
+            //        db.Movies.FirstOrDefault(m => m.MovieId == movieId);
+
+            //    if(query1 != null)
+            //    {
+            //        query1.MovieName = newMovieName;
+            //        query1.CategoryName = newCategory;
+            //        query1.VideoPath = trailerPath;
+
+            //        db.SaveChanges();
+            //        return true;
+            //    }
+
+            //}
+
+            //return false;
+            #endregion
+            var query1 =
+                    _service.AllMoviesList.FirstOrDefault(m => m.MovieId == movieId);
+
+            if (query1 == null)
             {
-                var query1 =
-                    db.Movies.FirstOrDefault(m => m.MovieId == movieId);
-
-                if(query1 != null)
-                {
-                    query1.MovieName = newMovieName;
-                    query1.CategoryName = newCategory;
-                    query1.VideoPath = trailerPath;
-
-                    db.SaveChanges();
-                    return true;
-                }
-                
+                return false;
             }
-
-            return false;
+            _service.UpdateMovieFromDatabase(query1, newMovieName, newCategory, trailerPath);
+            return true;
         }
 
         public List<Tuple<string, string>> ListOfMovies()
         {
             List<Tuple<string, string>> output = new List<Tuple<string, string>>();
 
-            using (var db = new SMDbContext())
+            var query1 =
+                    _service.AllMoviesList.Select(m => m).ToList();
+
+
+            foreach (var movie in query1)
             {
-                var query1 =
-                    db.Movies.Select(m => m).ToList();
-
-
-                foreach (var movie in query1)
-                {
-                    output.Add(Tuple.Create(movie.MovieName, movie.CategoryName));
-                }
-
-                return output;
+                output.Add(Tuple.Create(movie.MovieName, movie.CategoryName));
             }
+
+            return output;
         }
         public List<Movie> RetrieveAll()
         {
-            using (var db = new SMDbContext())
-            {
-                return db.Movies.ToList();
-            }
+            //using (var db = new SMDbContext())
+            //{
+            //    return db.Movies.ToList();
+            //}
+            return _service.AllMoviesList;
         }
         public List<Movie> RetrieveMovie(string movieName)
         {
-            using(var db = new SMDbContext())
-            {
-                return db.Movies.Where(m => m.MovieName.Contains(movieName)).ToList();
-            }
+            return _service.GetMovieByName(movieName);
         }
 
         public void AddRemoveFavourite()
         {
-
-            using (var db = new SMDbContext())
+            if (_service.GetAllFavouriteMoviesList().Count() >= 0 && SelectedMovie != null)
             {
-                if (db.MovieFavourites.Count() >= 0 && SelectedMovie != null)
+                var query =
+                    _service.GetAllFavouriteMoviesList().Where(fm => fm.MovieId == SelectedMovie.MovieId && fm.UserId == SelectedUser.UserId).FirstOrDefault();
+
+                if (query == null)
                 {
-                    var queryOfMovies =
-                    db.MovieFavourites.Where(fm => fm.MovieId == SelectedMovie.MovieId && fm.UserId == SelectedUser.UserId).FirstOrDefault();
+                    MovieFavourites newMovieFavourite = new MovieFavourites();
+                    newMovieFavourite.UserId = SelectedUser.UserId;
+                    newMovieFavourite.MovieId = SelectedMovie.MovieId;
 
-                    if (queryOfMovies == null)
-                    {
-                        MovieFavourites newMovieFavourite = new MovieFavourites();
-                        newMovieFavourite.UserId = SelectedUser.UserId;
-                        newMovieFavourite.MovieId = SelectedMovie.MovieId;
+                    //Add to Favourites -  Push into table
 
-                        //SelectedMovie.MovieFavourites.Add(newMovieFavourite);
-                        //SelectedUser.MovieFavourites.Add(newMovieFavourite);
+                    _service.AddMovieToFavourites(newMovieFavourite);
+                }
+                else
+                {
+                    var query2 =
+                        _service.GetAllFavouriteMoviesList()
+                        .Where(mf => mf.Movie == SelectedMovie).Select(m => m).FirstOrDefault();
 
-                        //Add to Favourites -  Push into table
-                        db.MovieFavourites.Add(newMovieFavourite);
-                        db.SaveChanges();
-                    }
-                    else
-                    {
-                        //Remove from Favourites - Remove from table
-                        //db.MovieFavourites.Remove((MovieFavourites)SelectedMovie.MovieFavourites);
-
-                        //retrieve the MovieFavourites gameobject that holds the SelectedMovie movie
-
-                        var query =
-                            db.MovieFavourites
-                            .Where(mf => mf.Movie == SelectedMovie).Select(m=>m).FirstOrDefault();
-
-                        db.MovieFavourites.Remove(query);
-                        db.SaveChanges();
-
-
-                    }
+                    _service.RemoveFromFavourites(query);
                 }
             }
-
-            //I can either have a list with all of the favourite movies from everyone
-            //and only display the apporpriate 
         }
 
         public List<Movie> RetrieveFavourites
@@ -305,11 +295,13 @@ namespace BusinessLayer
                 {
                     if (SelectedUser != null)
                     {
+
                         var query =
                             db.Users.Include(u=>u.MovieFavourites)
                             .ThenInclude(mv=>mv.Movie)
                             .Where(u=>u.UserId ==SelectedUser.UserId)
                             .Select(m => m).FirstOrDefault();
+
                         
                         if (query != null)
                         {

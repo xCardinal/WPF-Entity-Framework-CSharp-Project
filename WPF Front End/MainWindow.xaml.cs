@@ -12,11 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using BusinessLayer;
 using System.Data.SqlClient;
 using System.Configuration;
 using Microsoft.Win32;
 using System.Diagnostics;
+using BusinessLayer;
 
 namespace WPF_Front_End
 {

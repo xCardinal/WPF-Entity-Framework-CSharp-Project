@@ -1,5 +1,4 @@
-﻿using BusinessLayer;
-using Data;
+﻿using Data;
 using MaterialDesignColors;
 using System;
 using System.Collections.Generic;
@@ -16,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using BusinessLayer;
 
 namespace WPF_Front_End
 {

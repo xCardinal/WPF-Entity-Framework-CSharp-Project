@@ -26,7 +26,7 @@
             x:Name="BackgroundImage"
             HorizontalAlignment="Center"
             OpacityMask="White"
-            Source="C:\Users\iFran\Desktop\General\Sparta-Work\WPF-Entity-Framework-CSharp-Project\BusinessLayer\Images\2063914.jpg"
+            Source="C:\Users\iFran\Desktop\General\Work\EverythingUpToQualityGate\Sparta-Work\WPF-Entity-Framework-CSharp-Project\BusinessLayer\Images\2063914.jpg"
             Stretch="Fill" />
 
 
